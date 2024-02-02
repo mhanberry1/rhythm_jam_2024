@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7051b0bdbd88346bcb183a81ddefc8, type: 3}
+  m_Name: LoopingDemoSong
+  m_EditorClassIdentifier: 
+  Clip: {fileID: 8300000, guid: c765ed0a01f20e14fa858b5541e7ef9b, type: 3}
+  FirstBeatOffset: 0
+  Looping: 1
+  BaseBpm: 140
+  BpmChanges: []
+  BeatSequences:
+    BeatSequences:
+    - {fileID: 11400000, guid: 223fca346ce4cbc47a37a7c953dfe08a, type: 2}
+  BeatSequenceChanges: []
