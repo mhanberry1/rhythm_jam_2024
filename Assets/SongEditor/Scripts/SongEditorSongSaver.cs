@@ -4,8 +4,9 @@ using System.Linq;
 using UnityEditor;
 #endif
 using UnityEngine;
+using RhythmEngine;
 
-namespace RhythmEngine.Examples
+namespace RhythmJam
 {
     /// <summary>
     /// Helper class to save a call response song in the editor.

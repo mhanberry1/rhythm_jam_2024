@@ -747,6 +747,7 @@ GameObject:
   - component: {fileID: 970202018}
   - component: {fileID: 970202017}
   - component: {fileID: 970202016}
+  - component: {fileID: 970202019}
   m_Layer: 0
   m_Name: RhythmEngine
   m_TagString: Untagged
@@ -883,6 +884,19 @@ Transform:
   - {fileID: 2083150759}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &970202019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970202015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d396bff9be9a4a669b3a3323f445823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RhythmEngine: {fileID: 970202016}
 --- !u!1 &991601886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,6 +1060,100 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037513379}
   m_CullTransparentMesh: 1
+--- !u!1 &1040161774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1040161775}
+  - component: {fileID: 1040161779}
+  - component: {fileID: 1040161778}
+  - component: {fileID: 1040161776}
+  m_Layer: 5
+  m_Name: CallResponseText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1040161775
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040161774}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1677411804}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -300, y: 200}
+  m_SizeDelta: {x: 600, y: 200}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1040161776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040161774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 40
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Call
+--- !u!222 &1040161778
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040161774}
+  m_CullTransparentMesh: 1
+--- !u!114 &1040161779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040161774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d8ade8d7a834a3aa0b687192b67408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _announcer: {fileID: 970202019}
+  _fadeSpeed: 0.05
 --- !u!1 &1138089376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,6 +1669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RhythmEngine: {fileID: 970202016}
   SongToEdit: {fileID: 11400000, guid: 8bfc8b2e99e714adea030a40082d8f8a, type: 2}
+  AutoPlaceResponse: 1
   BeatsParent: {fileID: 1539699764}
   MajorBeatPrefab: {fileID: 46678518137551397, guid: 6403a0722c0954286b67722a38dd090f, type: 3}
   MinorBeatPrefab: {fileID: 832352622585340936, guid: 63dc28140dd144f1db7bda99bb08a236, type: 3}
@@ -1709,6 +1818,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1040161775}
   - {fileID: 522350443}
   - {fileID: 1920439386}
   - {fileID: 359584214}
@@ -1931,7 +2041,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -300, y: 0}
-  m_SizeDelta: {x: 600, y: 600}
+  m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1920439387
 MonoBehaviour:
