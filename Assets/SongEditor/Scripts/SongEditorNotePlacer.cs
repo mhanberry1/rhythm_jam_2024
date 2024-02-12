@@ -1,6 +1,7 @@
 using UnityEngine;
+using RhythmEngine;
 
-namespace RhythmEngine.Examples
+namespace RhythmJam
 {
     /// <summary>
     /// Class responsible for getting the exact note index from the world position of the mouse.

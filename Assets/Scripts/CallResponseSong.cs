@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
+using RhythmEngine;
 
-namespace RhythmEngine.Examples
+namespace RhythmJam
 {
     /// <summary>
     /// A song with a call-response structure.

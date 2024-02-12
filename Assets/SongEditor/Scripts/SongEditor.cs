@@ -1,8 +1,9 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using RhythmEngine;
 
-namespace RhythmEngine.Examples
+namespace RhythmJam
 {
     /// <summary>
     /// Main class for the song editor.

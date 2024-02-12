@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace RhythmEngine.Examples
+namespace RhythmJam
 {
     /// <summary>
     /// Simple struct containing the data of a call-response note.
