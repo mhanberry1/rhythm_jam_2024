@@ -647,12 +647,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Custom Song Editor\n----------------------------\nThis editor loads all
-    the notes from a \nSimpleManiaSong and gives \nan interface to modify them.\n\nUse
-    the scroll wheel to snap \nbetween beats.\n\nUse right mouse button to \nadd
-    a note on a beat or to remove\nan already existing note from a beat.\n\nPress
-    space to pause/unpause.\n\nPress the save button below to save\nthe changes to
-    the song asset.\n"
+  m_Text: "Custom Song Editor\n----------------------------\nUse right mouse button
+    to \nadd/remove notes.\n\nCalls are in the left column.\nResponses are in second
+    column.\nDon't use the other columns.\n\nUse the scroll wheel to seek.\n\nPress
+    space to pause/unpause.\n\nDon't forget to save!"
 --- !u!222 &522350445
 CanvasRenderer:
   m_ObjectHideFlags: 0
