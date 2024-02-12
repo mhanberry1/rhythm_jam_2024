@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using RhythmEngine;
 
-namespace RhythmEngine.Examples
+namespace RhythmJam
 {
     /// <summary>
 	/// Provides events to handle note interactions
