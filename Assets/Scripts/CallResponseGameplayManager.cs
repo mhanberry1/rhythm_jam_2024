@@ -10,7 +10,7 @@ namespace RhythmJam
     /// <summary>
 	/// Provides events to handle note interactions
     /// </summary>
-    public class CallResponseNoteManager : MonoBehaviour
+    public class CallResponseGameplayManager : MonoBehaviour
     {
 		[SerializeField] private InputActionAsset inputActions;
         [SerializeField] private RhythmEngineCore RhythmEngine;
@@ -48,16 +48,18 @@ namespace RhythmJam
 			{
 				_callNotes.Dequeue();
 				OnCallNote?.Invoke();
+				Debug.Log("call");
 			}
 		}
 
 		// Remove response notes that have passed and invoke event handler
 		private void HandleResponseNotes(double time)
 		{
-			while(_responseNotes.Peek().Time <= time)
+			while(_responseNotes.Peek().Time + Song.GoodTimeMs / 1000 < time)
 			{
 				_responseNotes.Dequeue();
 				OnMiss?.Invoke();
+				Debug.Log("miss");
 			}
 		}
 
@@ -65,19 +67,21 @@ namespace RhythmJam
 		private void OnBeatInput(InputAction.CallbackContext context)
 		{
 			double accuracy = Math.Abs(RhythmEngine.GetCurrentAudioTime() - _responseNotes.Peek().Time) * 1000;
-			Debug.Log(accuracy);
 
 			if(accuracy < Song.PerfectTimeMs)
 			{
 				_responseNotes.Dequeue();
 				OnPerfect?.Invoke();
+				Debug.Log("perfect");
 			} else if (accuracy < Song.GoodTimeMs)
 			{
 				_responseNotes.Dequeue();
 				OnGood?.Invoke();
+				Debug.Log("good");
 			} else
 			{
 				OnMiss?.Invoke();
+				Debug.Log("miss");
 			}
 		}
     }
