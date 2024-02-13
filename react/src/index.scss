@@ -58,15 +58,12 @@
 
 /* ===== Debug UI ===== */
 .debug-ui {
+  @include flex-layout(column);
   padding: 6px;
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: transparent;
-  pointer-events: none;
-
-  display: flex;
-  flex-direction: column;
 
   .footer {
     display: flex;
@@ -76,6 +73,15 @@
   .text {
     color: white;
     font-size: 12px;
+  }
+
+  .button {
+    font-size: 16px;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: white;
+    width: 100px;
   }
 }
 
@@ -130,5 +136,20 @@
     height: 1px;
     width: 100%;
     background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  }
+}
+
+.gameover {
+  @include flex-layout(column);
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  .title {
+    margin-top: -128px;
+    margin-bottom: 128px;
+    text-align: center;
+    color: white;
+    font-size: 32px;
   }
 }

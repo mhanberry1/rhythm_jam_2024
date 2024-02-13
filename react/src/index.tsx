@@ -10,6 +10,7 @@ import PauseMenu from "./pauseMenu";
 import Instructions from "./instructions";
 import Hud from "./hud";
 import Debug from "./debug";
+import GameOver from "./gameOver";
 
 export default function App() {
   const globals = useGlobals();
@@ -29,6 +30,7 @@ export default function App() {
         <Route path="/pauseMenu" element={<PauseMenu />} />
         <Route path="/instructions" element={<Instructions />} />
         <Route path="/hud" element={<Hud />} />
+        <Route path="/gameOver" element={<GameOver />} />
       </Routes>
       <Debug />
     </>

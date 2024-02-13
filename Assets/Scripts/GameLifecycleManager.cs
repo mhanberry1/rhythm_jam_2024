@@ -59,7 +59,7 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
                 // PlayerManager.Instance.SwitchActionMaps("menu");
                 break;
             case GameState.GameOver:
-                UIRouter.Instance.SwitchRoutes(UIRouter.Route.MainMenu);
+                UIRouter.Instance.SwitchRoutes(UIRouter.Route.GameOver);
                 break;
         }
 
@@ -90,6 +90,12 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
     public void ReturnToMainMenu()
     {
         SwitchGameState(GameState.MainMenu);
+    }
+    
+    [JsCallable]
+    public void EndGame()
+    {
+        SwitchGameState(GameState.GameOver);
     }
     
     void Start()
