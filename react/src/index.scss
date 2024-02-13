@@ -1,77 +1,134 @@
-.black-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 250px;
-  // background-color: red;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0.8) 80%, rgba(0, 0, 0, 0.5));
+/* ===== Mixins ===== */
+
+@mixin flex-layout($direction) {
   display: flex;
-  flex-direction: row;
-  // align-items: center;
-  // justify-content: center;
+  flex-direction: $direction;
+}
+
+/* ===== Common ===== */
+
+.padding-md {
+  padding: 12px;
+}
+
+.padding-lg {
   padding: 24px;
-  padding-left: 20%;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  text-align: left;
-  font-family: sans-serif;
-}
-
-.title {
-  padding-left: 48px;
-  color: white;
-  font-size: 24px;
-}
-
-.gradient-rule {
-  height: 1px;
-  // width: 100%;
-  width: 400px;
-  // align-self: stretch;
-  background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
-  margin: 16px 0;
-}
-
-.message {
-  padding: 24px;
-  padding-left: 64px;
-  color: white;
-  font-size: 18px;
 }
 
 .spacer {
   flex-grow: 1;
 }
 
-.main-menu {
+.flex-column {
+  @include flex-layout(column);
+}
+
+.flex-row {
+  @include flex-layout(row);
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+/* ===== Components ===== */
+
+.button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+
+  font-size: 24px;
+  color: white;
+
+  &:active {
+    background-color: aqua;
+    transform: scale(1.1);
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+/* ===== Debug UI ===== */
+.debug-ui {
+  padding: 6px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  pointer-events: none;
+
   display: flex;
   flex-direction: column;
+
+  .footer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .text {
+    color: white;
+    font-size: 12px;
+  }
+}
+
+/* ===== Routes ===== */
+
+.main-menu {
+  @include flex-layout(column);
+  justify-content: center;
+  align-items: center;
   height: 100%;
 
-  .rule {
-    height: 1px;
-    align-self: stretch;
-    background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
-    margin: 0px 0;
-  }
-
-  .top-bar {
-    height: 100px;
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-
   .content {
-    flex-grow: 1;
+    @include flex-layout(column);
+    align-items: center;
+    gap: 24px;
   }
 
-  .bottom-bar {
-    height: 75px;
-    background-color: rgba(0, 0, 0, 0.8);
+  .title {
+    margin-top: -128px;
+    margin-bottom: 128px;
+    text-align: center;
+    color: white;
+    font-size: 64px;
+  }
+}
+
+.pause-menu {
+  height: 100%;
+
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+    color: white;
+    gap: 24px;
+
+    .button {
+      font-size: 18px;
+    }
+  }
+
+  .black-bar {
+    @include flex-layout(column);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0.8) 80%, rgba(0, 0, 0, 0.5));
+  }
+  
+  .gradient-rule {
+    height: 1px;
+    width: 100%;
+    background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
   }
 }

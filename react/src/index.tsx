@@ -1,12 +1,15 @@
-import { useGlobals, useReactiveValue } from '@reactunity/renderer';
-import { render } from '@reactunity/renderer';
-import './index.scss';
+import { useGlobals, useReactiveValue } from "@reactunity/renderer";
+import { render } from "@reactunity/renderer";
+import "./index.scss";
 
-import { MemoryRouter, Route, Routes, useNavigate } from 'react-router';
-import { useEffect } from 'react';
+import { MemoryRouter, Route, Routes, useNavigate } from "react-router";
+import { useEffect } from "react";
 
-import Menu from './menu';
-import Dialogue from './dialogue';
+import MainMenu from "./mainMenu";
+import PauseMenu from "./pauseMenu";
+import Instructions from "./instructions";
+import Hud from "./hud";
+import Debug from "./debug";
 
 export default function App() {
   const globals = useGlobals();
@@ -15,16 +18,20 @@ export default function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(`Navigate to route: ${route}`);
     navigate(route);
-  }, [route, navigate])
+  }, [route, navigate]);
 
   return (
-    <Routes>
-      <Route path="/" element={<view />} />
-      <Route path="/menu" element={<Menu />} />
-      <Route path="/dialogue" element={<Dialogue />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<view />} />
+        <Route path="/mainMenu" element={<MainMenu />} />
+        <Route path="/pauseMenu" element={<PauseMenu />} />
+        <Route path="/instructions" element={<Instructions />} />
+        <Route path="/hud" element={<Hud />} />
+      </Routes>
+      <Debug />
+    </>
   );
 }
 

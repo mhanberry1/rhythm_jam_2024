@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class UIRouter : Singleton<UIRouter> {
     public enum Route {
-        Game,
-        Menu,
-        Dialogue,
+        None,
+        MainMenu,
+        PauseMenu,
+        Instructions,
+        Hud,
     }
 
-    public Route DebugRoute = Route.Game;
+    public Route DebugRoute = Route.None;
 
     public event EventHandler<string> OnRouteUpdate;
 
@@ -26,11 +28,20 @@ public class UIRouter : Singleton<UIRouter> {
     string RouteNameToPath(Route routeName) {
         string routePath = "";
         switch (routeName) {
-            case Route.Menu:
-                routePath = "/menu";
+            case Route.None:
+                routePath = "/";
                 break;
-            case Route.Dialogue:
-                routePath = "/dialogue";
+            case Route.MainMenu:
+                routePath = "/mainMenu";
+                break;
+            case Route.PauseMenu:
+                routePath = "/pauseMenu";
+                break;
+            case Route.Instructions:
+                routePath = "/instructions";
+                break;
+            case Route.Hud:
+                routePath = "/hud";
                 break;
         }
         return routePath;
