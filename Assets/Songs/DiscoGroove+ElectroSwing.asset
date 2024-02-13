@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7579cb2f657234d2e8c5987bddd5fd1e, type: 3}
+  m_Name: DiscoGroove+ElectroSwing
+  m_EditorClassIdentifier: 
+  Clip: {fileID: 8300000, guid: 13cdfa3936f1e48309d3de86a9c6039a, type: 3}
+  FirstBeatOffset: 0
+  Looping: 0
+  BaseBpm: 120
+  BpmChanges: []
+  BeatSequences:
+    BeatSequences: []
+  BeatSequenceChanges: []
+  CallNotes:
+  - Time: 8
+  - Time: 9
+  - Time: 10
+  - Time: 11
+  - Time: 16
+  - Time: 17
+  - Time: 18
+  - Time: 18.5
+  - Time: 19
+  - Time: 24
+  - Time: 25
+  - Time: 26
+  - Time: 27
+  - Time: 32
+  - Time: 33
+  - Time: 33.5
+  - Time: 34.5
+  - Time: 35
+  - Time: 40
+  - Time: 41
+  - Time: 41.5
+  - Time: 42
+  - Time: 43
+  - Time: 48.5
+  - Time: 49.5
+  - Time: 50.5
+  - Time: 51
+  - Time: 56.5
+  - Time: 57.5
+  - Time: 58
+  - Time: 58.5
+  - Time: 59
+  - Time: 64
+  - Time: 64.5
+  - Time: 64.75
+  - Time: 65
+  - Time: 65.5
+  - Time: 66.5
+  - Time: 67
+  - Time: 72
+  - Time: 72.5
+  - Time: 73.25
+  - Time: 73.75
+  - Time: 74.25
+  - Time: 75
+  - Time: 75.5
+  - Time: 80
+  - Time: 80.25
+  - Time: 80.5
+  - Time: 80.75
+  - Time: 81
+  - Time: 81.5
+  - Time: 82
+  - Time: 82.25
+  - Time: 82.5
+  - Time: 82.75
+  - Time: 83
+  ResponseNotes:
+  - Time: 12
+  - Time: 13
+  - Time: 14
+  - Time: 15
+  - Time: 20
+  - Time: 21
+  - Time: 22
+  - Time: 22.5
+  - Time: 23
+  - Time: 28
+  - Time: 29
+  - Time: 30
+  - Time: 31
+  - Time: 36
+  - Time: 37
+  - Time: 37.5
+  - Time: 38.5
+  - Time: 39
+  - Time: 44
+  - Time: 45
+  - Time: 45.5
+  - Time: 46
+  - Time: 47
+  - Time: 52.5
+  - Time: 53.5
+  - Time: 54.5
+  - Time: 55
+  - Time: 60.5
+  - Time: 61.5
+  - Time: 62
+  - Time: 62.5
+  - Time: 63
+  - Time: 68
+  - Time: 68.5
+  - Time: 68.75
+  - Time: 69
+  - Time: 69.5
+  - Time: 70.5
+  - Time: 71
+  - Time: 76
+  - Time: 76.5
+  - Time: 77.25
+  - Time: 77.75
+  - Time: 78.25
+  - Time: 79
+  - Time: 79.5
+  - Time: 84
+  - Time: 84.25
+  - Time: 84.5
+  - Time: 84.75
+  - Time: 85
+  - Time: 85.5
+  - Time: 86
+  - Time: 86.25
+  - Time: 86.5
+  - Time: 86.75
+  - Time: 87
+  BeatsPerBar: 4
+  BeatSubdivisions: 4
+  CallResponseInterval: 8
+  PerfectTimeMs: 50
+  GoodTimeMs: 100
