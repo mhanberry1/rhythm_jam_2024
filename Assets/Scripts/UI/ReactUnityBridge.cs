@@ -10,20 +10,39 @@ public class ReactUnityBridge : MonoBehaviour {
 
     public ReactiveValue<string> route = new();
     public ReactiveValue<string> debugGameState = new();
+    public ReactiveValue<int> score = new();
+    public ReactiveValue<Leaderboards.LeaderboardScores> leaderboardScores = new();
     
     // Game System References
     [NonNullField]
     public GameLifecycleManager GameLifecycleManager;
+    [NonNullField]
+    public Leaderboards Leaderboards;
 
     void Awake() {
         ReactRendererBase reactRenderer = GetComponentInChildren<ReactUnity.UGUI.ReactRendererUGUI>();
         Router.OnRouteUpdate += OnRouteUpdate;
         reactRenderer.Globals["route"] = route;
-
-        // Game System References
+        reactRenderer.Globals["leaderboardScores"] = leaderboardScores;
+        reactRenderer.Globals["score"] = score;
         reactRenderer.Globals["debugGameState"] = debugGameState;
+        
+        // Game System References
         reactRenderer.Globals["gameLifecycleManager"] = GameLifecycleManager;
+        
         GameLifecycleManager.OnGameStateUpdated += OnGameStateUpdated;
+        GameLifecycleManager.OnScoreUpdated += OnScoreUpdated;
+        Leaderboards.OnLeaderboardScoresUpdated += LeaderboardsOnOnLeaderboardScoresUpdated;
+    }
+
+    private void OnScoreUpdated(object sender, int data)
+    {
+        score.Value = data;
+    }
+
+    private void LeaderboardsOnOnLeaderboardScoresUpdated(object sender, Leaderboards.LeaderboardScores data)
+    {
+        leaderboardScores.Value = data;
     }
 
     void OnRouteUpdate(object sender, string data) {

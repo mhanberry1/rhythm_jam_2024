@@ -22,6 +22,7 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
     }
     
     public event EventHandler<GameState> OnGameStateUpdated;
+    public event EventHandler<int> OnScoreUpdated;
 
     private GameState _currentGameState = GameState.MainMenu;
 
@@ -37,6 +38,13 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
         get { return _currentGameType; }
     }
 
+    private int _score = 0;
+    public int Score
+    {
+        get { return _score; }
+    }
+    
+    
     private void SwitchGameState(GameState gameState)
     {
         switch (gameState)
@@ -51,6 +59,7 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
             case GameState.GameStarted:
                 UIRouter.Instance.SwitchRoutes(UIRouter.Route.Hud);
                 BackgroundManager.Instance.SwitchBackgrounds(_currentGameType);
+                SetScore(0);
                 // Unpause the game
                 Time.timeScale = 1;
                 break;
@@ -69,6 +78,12 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
         OnGameStateUpdated?.Invoke(this, _currentGameState);
     }
 
+    private void SetScore(int score)
+    {
+        _score = score;
+        OnScoreUpdated?.Invoke(this, _score);
+    }
+    
     [JsCallable]
     public void StartGame(GameType gameType)
     {
