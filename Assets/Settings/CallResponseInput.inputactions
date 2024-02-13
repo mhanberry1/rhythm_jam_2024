@@ -1,0 +1,34 @@
+{
+    "name": "CallResponseInput",
+    "maps": [
+        {
+            "name": "gameplay",
+            "id": "49891857-4863-451c-99b6-6d1e67d7cdb1",
+            "actions": [
+                {
+                    "name": "beatInput",
+                    "type": "Button",
+                    "id": "c76100cc-7c38-4ac9-a21e-22291547d593",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "93a08ec3-52af-4fbe-9134-3f94dd79346e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "beatInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
