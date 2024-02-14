@@ -94,7 +94,7 @@ namespace RhythmJam
         // Remove call notes that have passed and invoke event handler
         private void HandleCallNotes(double time)
         {
-            while(_callNotes.Peek().Time <= time)
+            while(_callNotes.Count > 0 && _callNotes.Peek().Time <= time)
             {
                 _callNotes.Dequeue();
                 OnCallNote?.Invoke();
@@ -105,7 +105,7 @@ namespace RhythmJam
         // Remove response notes that have passed and invoke event handler
         private void HandleResponseNotes(double time)
         {
-            while(_responseNotes.Peek().Time + _currentSong.GoodTimeMs / 1000 < time)
+            while(_responseNotes.Count > 0 && _responseNotes.Peek().Time + _currentSong.GoodTimeMs / 1000 < time)
             {
                 _responseNotes.Dequeue();
                 OnMiss?.Invoke();
@@ -117,6 +117,10 @@ namespace RhythmJam
         // Check if the user hit the notes on-time
         private void OnBeatInput(InputAction.CallbackContext context)
         {
+            if (_responseNotes.Count <= 0) {
+                return;
+            }
+
             double accuracy = Math.Abs(RhythmEngine.GetCurrentAudioTime() - _responseNotes.Peek().Time) * 1000;
 
             if(accuracy < _currentSong.PerfectTimeMs)
