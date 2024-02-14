@@ -655,6 +655,14 @@ PrefabInstance:
       propertyPath: SpacePopSong
       value: 
       objectReference: {fileID: 11400000, guid: 8bfc8b2e99e714adea030a40082d8f8a, type: 2}
+    - target: {fileID: 3960343065080913604, guid: acbee6b1e4eeb474f91c82beb7e17313, type: 3}
+      propertyPath: CutieGermsSong
+      value: 
+      objectReference: {fileID: 11400000, guid: bdbcf1e2200c947cb8eb326c7ae609a0, type: 2}
+    - target: {fileID: 3960343065080913604, guid: acbee6b1e4eeb474f91c82beb7e17313, type: 3}
+      propertyPath: OldManRaveSong
+      value: 
+      objectReference: {fileID: 11400000, guid: 9eb856196588f42e08696d69dc14048b, type: 2}
     - target: {fileID: 5762589386573243884, guid: acbee6b1e4eeb474f91c82beb7e17313, type: 3}
       propertyPath: ManualMode
       value: 1
@@ -685,6 +693,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Visuals
       objectReference: {fileID: 0}
+    - target: {fileID: 2738929481361830441, guid: b69152b68ffd0e44d838337ea02e8fe7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 87f4de9c448b8494d91c87ebfb20127d, type: 3}
     - target: {fileID: 5204276567808457822, guid: b69152b68ffd0e44d838337ea02e8fe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

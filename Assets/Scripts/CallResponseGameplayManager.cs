@@ -18,6 +18,12 @@ namespace RhythmJam
         [NonNullField]
         public CallResponseSong SpacePopSong;
 
+        [NonNullField]
+        public CallResponseSong OldManRaveSong;
+        
+        [NonNullField]
+        public CallResponseSong CutieGermsSong;
+        
         public enum Judgement
         {
 	        Good,
@@ -52,14 +58,25 @@ namespace RhythmJam
 
 		public void Initialize(GameLifecycleManager.GameType gameType)
 		{
-			_currentSong = SpacePopSong;
+			switch (gameType)
+			{
+				case GameLifecycleManager.GameType.SpacePop:
+					_currentSong = SpacePopSong;
+					break;
+				case GameLifecycleManager.GameType.OldManRave:
+					_currentSong = OldManRaveSong;
+					break;
+				case GameLifecycleManager.GameType.CutieGerms:
+					_currentSong = CutieGermsSong;
+					break;
+			}
+			
 			if (_currentSong == null)
 			{
 				Debug.LogError("[CallResponseGameplayManager] Current song is null!");
 				return;
 			}
 			
-			// TODO: Handle other game types
 			_callNotes = new Queue<CallResponseNote>(_currentSong.CallNotes.OrderBy(note => note.Time));
 			_responseNotes = new Queue<CallResponseNote>(_currentSong.ResponseNotes.OrderBy(note => note.Time));
 			
