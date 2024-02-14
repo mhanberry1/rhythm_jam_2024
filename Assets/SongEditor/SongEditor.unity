@@ -1666,7 +1666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RhythmEngine: {fileID: 970202016}
-  SongToEdit: {fileID: 11400000, guid: bdbcf1e2200c947cb8eb326c7ae609a0, type: 2}
+  SongToEdit: {fileID: 11400000, guid: 9eb856196588f42e08696d69dc14048b, type: 2}
   AutoPlaceResponse: 1
   BeatsParent: {fileID: 1539699764}
   MajorBeatPrefab: {fileID: 46678518137551397, guid: 6403a0722c0954286b67722a38dd090f, type: 3}

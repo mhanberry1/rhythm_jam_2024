@@ -387,7 +387,7 @@ MonoBehaviour:
   MusicSource: {fileID: 330539859}
   OffsetInMs: 0
   PreStartTime: 2
-  SongToPlay: {fileID: 11400000, guid: 8bfc8b2e99e714adea030a40082d8f8a, type: 2}
+  SongToPlay: {fileID: 11400000, guid: 9eb856196588f42e08696d69dc14048b, type: 2}
   ManualMode: 0
 --- !u!82 &216566640
 AudioSource:
