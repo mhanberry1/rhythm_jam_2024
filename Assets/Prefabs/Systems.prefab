@@ -784,6 +784,6 @@ MonoBehaviour:
   - {fileID: 5748385196899993742}
   - {fileID: 5645368590780826479}
   NotesContainer: {fileID: 8615567371901322423}
-  MissVfxPrefab: {fileID: 3187647067869052980, guid: ab8802a00020db74c81635f3c5db9bcf, type: 3}
-  GoodVfxPrefab: {fileID: 2883797502249945402, guid: 1e54877675f6e4a46ad7ca7c4d7a5bf6, type: 3}
-  PerfectVfxPrefab: {fileID: 5339739117810204693, guid: 26e1cb216e3635e4a820f58a1118d6b9, type: 3}
+  MissVfxPrefab: {fileID: 7215700213826166923, guid: 6a3908828afa51f43b01809ce98cb797, type: 3}
+  GoodVfxPrefab: {fileID: 3628701875006536168, guid: 996f22017a2c2724482d163e476b282e, type: 3}
+  PerfectVfxPrefab: {fileID: 5276839020431553351, guid: 6dc3a035e99eabe4b837ceb9e8a4bc57, type: 3}
