@@ -44,7 +44,7 @@ public class Leaderboards : Singleton<Leaderboards>
         if (!AuthenticationService.Instance.IsSignedIn) {
             try {
                 await AuthenticationService.Instance.SignInAnonymouslyAsync();
-            } catch (Exception _) { }
+            } catch (Exception) { }
         }
 
         // NOTE: Awaits need to wrapped in try-catch otherwise if they throw an exception they will just not return.
@@ -52,7 +52,7 @@ public class Leaderboards : Singleton<Leaderboards>
         Task loadPlayerScoreTask = LoadPlayerScoreAsync();
         try {
             await Task.WhenAll(loadGlobalScoreTask, loadPlayerScoreTask);
-        } catch (Exception _) { }
+        } catch (Exception) { }
     }
     
     public async Task SubmitScoreToLeaderboard(int score)
@@ -69,7 +69,7 @@ public class Leaderboards : Singleton<Leaderboards>
         if (!AuthenticationService.Instance.IsSignedIn) {
             try {
                 await AuthenticationService.Instance.SignInAnonymouslyAsync();
-            } catch (Exception _) { }
+            } catch (Exception) { }
         }
 
         // Update latest score. This gets us:
@@ -109,7 +109,7 @@ public class Leaderboards : Singleton<Leaderboards>
                 _scores.BestScore = networkBestScore;
                 _scores.BestRanking = networkBestRank;
             }
-        } catch (Exception _) {
+        } catch (Exception) {
             // This happens when the user doesn't have a score yet.
         }
         
@@ -120,7 +120,7 @@ public class Leaderboards : Singleton<Leaderboards>
                 await LeaderboardsService.Instance.AddPlayerScoreAsync(LEADERBOARD_ID,
                     _scores.LatestScore);
             _scores.LatestRanking = scoreResponse.Rank + 1;
-        } catch (Exception _) { }
+        } catch (Exception) { }
         
         // Now that we know our best score, and we've gotten our latest rank, we can resubmit to the server.
         // This will let the server know our best score so far, and we'll also get an up to date best rank.
@@ -130,7 +130,7 @@ public class Leaderboards : Singleton<Leaderboards>
                 await LeaderboardsService.Instance.AddPlayerScoreAsync(LEADERBOARD_ID,
                     _scores.BestScore);
             _scores.BestRanking = scoreResponse.Rank + 1;
-        } catch (Exception _) { }
+        } catch (Exception) { }
         
         // At this point we'll update the UI and cache the data.
         OnLeaderboardScoresUpdated?.Invoke(this, _scores);
@@ -167,7 +167,7 @@ public class Leaderboards : Singleton<Leaderboards>
                     new GetPlayerScoreOptions { IncludeMetadata = true });
             networkScore = (int)playerScoreResponse.Score;
             networkRank = playerScoreResponse.Rank + 1; // Rank is 0 based
-        } catch (Exception _) {
+        } catch (Exception) {
             // This can happen if there's either no internet connection,
             // or the player doesn't have a network score yet.
         }
@@ -187,7 +187,7 @@ public class Leaderboards : Singleton<Leaderboards>
                 LeaderboardEntry scoreResponse =
                     await LeaderboardsService.Instance.AddPlayerScoreAsync(LEADERBOARD_ID, cachedBestScore);
                 _scores.BestRanking = scoreResponse.Rank + 1;
-            } catch (Exception _) { }
+            } catch (Exception) { }
         }
 
         OnLeaderboardScoresUpdated?.Invoke(this, _scores);
