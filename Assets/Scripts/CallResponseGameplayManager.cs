@@ -10,32 +10,76 @@ namespace RhythmJam
     /// <summary>
 	/// Provides events to handle note interactions
     /// </summary>
-    public class CallResponseGameplayManager : MonoBehaviour
+    public class CallResponseGameplayManager : Singleton<CallResponseGameplayManager>
     {
 		[SerializeField] private InputActionAsset inputActions;
         [SerializeField] private RhythmEngineCore RhythmEngine;
+
+        [NonNullField]
+        public CallResponseSong SpacePopSong;
+
+        public enum Judgement
+        {
+	        Good,
+	        Perfect,
+	        Miss
+        }
 
 		public event Action OnCallNote;
 		public event Action OnMiss;
 		public event Action OnGood;
 		public event Action OnPerfect;
+		
+		public event EventHandler<Judgement> OnResponseNote;
 
-        private CallResponseSong Song => RhythmEngine.Song as CallResponseSong;
+        private CallResponseSong _currentSong;
 
 		private Queue<CallResponseNote> _callNotes;
 		private Queue<CallResponseNote> _responseNotes;
 
-		private void Awake()
+		private bool _isPlaying = false;
+
+		protected override void Awake()
 		{
+			base.Awake();
 			inputActions.FindActionMap("gameplay").Enable();
 			inputActions.FindActionMap("gameplay").FindAction("beatInput").performed += OnBeatInput;
-
-            _callNotes = new Queue<CallResponseNote>(Song.CallNotes.OrderBy(note => note.Time));
-			_responseNotes = new Queue<CallResponseNote>(Song.ResponseNotes.OrderBy(note => note.Time));
+			
+			// RhythmEngineCore wants this to be done before Start for some reason.
+			RhythmEngine.SetSong(SpacePopSong);
+			RhythmEngine.InitTime();
 		}
 
+		public void Initialize(GameLifecycleManager.GameType gameType)
+		{
+			_currentSong = SpacePopSong;
+			if (_currentSong == null)
+			{
+				Debug.LogError("[CallResponseGameplayManager] Current song is null!");
+				return;
+			}
+			
+			// TODO: Handle other game types
+			_callNotes = new Queue<CallResponseNote>(_currentSong.CallNotes.OrderBy(note => note.Time));
+			_responseNotes = new Queue<CallResponseNote>(_currentSong.ResponseNotes.OrderBy(note => note.Time));
+			
+			RhythmEngine.SetSong(_currentSong);
+		}
+
+		public void Play()
+		{
+			RhythmEngine.InitTime();
+			RhythmEngine.Play();
+			_isPlaying = true;
+		}
+		
 		private void Update()
 		{
+			if (!_isPlaying)
+			{
+				return;
+			}
+			
 			double time = RhythmEngine.GetCurrentAudioTime();
 			HandleCallNotes(time);
 			HandleResponseNotes(time);
@@ -55,10 +99,11 @@ namespace RhythmJam
 		// Remove response notes that have passed and invoke event handler
 		private void HandleResponseNotes(double time)
 		{
-			while(_responseNotes.Peek().Time + Song.GoodTimeMs / 1000 < time)
+			while(_responseNotes.Peek().Time + _currentSong.GoodTimeMs / 1000 < time)
 			{
 				_responseNotes.Dequeue();
 				OnMiss?.Invoke();
+				OnResponseNote?.Invoke(this, Judgement.Miss);
 				Debug.Log("miss");
 			}
 		}
@@ -68,19 +113,22 @@ namespace RhythmJam
 		{
 			double accuracy = Math.Abs(RhythmEngine.GetCurrentAudioTime() - _responseNotes.Peek().Time) * 1000;
 
-			if(accuracy < Song.PerfectTimeMs)
+			if(accuracy < _currentSong.PerfectTimeMs)
 			{
 				_responseNotes.Dequeue();
 				OnPerfect?.Invoke();
+				OnResponseNote?.Invoke(this, Judgement.Perfect);
 				Debug.Log("perfect");
-			} else if (accuracy < Song.GoodTimeMs)
+			} else if (accuracy < _currentSong.GoodTimeMs)
 			{
 				_responseNotes.Dequeue();
 				OnGood?.Invoke();
+				OnResponseNote?.Invoke(this, Judgement.Good);
 				Debug.Log("good");
 			} else
 			{
 				OnMiss?.Invoke();
+				OnResponseNote?.Invoke(this, Judgement.Miss);
 				Debug.Log("miss");
 			}
 		}

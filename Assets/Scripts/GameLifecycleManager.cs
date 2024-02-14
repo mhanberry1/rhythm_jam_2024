@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RhythmJam;
 using UnityEngine;
 
 public class GameLifecycleManager : Singleton<GameLifecycleManager>
@@ -59,6 +60,8 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
             case GameState.GameStarted:
                 UIRouter.Instance.SwitchRoutes(UIRouter.Route.Hud);
                 BackgroundManager.Instance.SwitchBackgrounds(_currentGameType);
+                CallResponseGameplayManager.Instance.Play();
+                VisualNoteManager.Instance.Reset();
                 SetScore(0);
                 // Unpause the game
                 Time.timeScale = 1;
@@ -88,6 +91,7 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
     public void StartGame(GameType gameType)
     {
         _currentGameType = gameType;
+        CallResponseGameplayManager.Instance.Initialize(_currentGameType);
         SwitchGameState(GameState.GameStarted);
     }
     
