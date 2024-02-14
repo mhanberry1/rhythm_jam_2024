@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Systems
       objectReference: {fileID: 0}
+    - target: {fileID: 7404988619102680791, guid: fc417b3454c8b894097e8131c06f5301, type: 3}
+      propertyPath: SpacePopSong
+      value: 
+      objectReference: {fileID: 11400000, guid: 9eb856196588f42e08696d69dc14048b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

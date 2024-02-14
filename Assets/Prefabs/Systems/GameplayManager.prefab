@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputActions: {fileID: -944628639613478452, guid: 26e0510d77fd6f9318cecce7aaf8df5a, type: 3}
   RhythmEngine: {fileID: 5762589386573243884}
+  SpacePopSong: {fileID: 11400000, guid: 9eb856196588f42e08696d69dc14048b, type: 2}
 --- !u!1 &4045853888628186812
 GameObject:
   m_ObjectHideFlags: 0
