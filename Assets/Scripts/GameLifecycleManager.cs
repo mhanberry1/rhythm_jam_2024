@@ -81,7 +81,7 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
         OnGameStateUpdated?.Invoke(this, _currentGameState);
     }
 
-    private void SetScore(int score)
+    public void SetScore(int score)
     {
         _score = score;
         OnScoreUpdated?.Invoke(this, _score);
