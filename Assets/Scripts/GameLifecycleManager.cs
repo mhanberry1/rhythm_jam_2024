@@ -21,7 +21,7 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
         OldManRave,
         CutieGerms,
     }
-    
+
     public event EventHandler<GameState> OnGameStateUpdated;
     public event EventHandler<int> OnScoreUpdated;
 
@@ -33,7 +33,7 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
     }
 
     private GameType _currentGameType = GameType.SpacePop;
-    
+
     public GameType CurrentGameType
     {
         get { return _currentGameType; }
@@ -44,8 +44,8 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
     {
         get { return _score; }
     }
-    
-    
+
+
     private void SwitchGameState(GameState gameState)
     {
         switch (gameState)
@@ -86,7 +86,7 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
         _score = score;
         OnScoreUpdated?.Invoke(this, _score);
     }
-    
+
     [JsCallable]
     public void StartGame(GameType gameType)
     {
@@ -94,31 +94,31 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
         CallResponseGameplayManager.Instance.Initialize(_currentGameType);
         SwitchGameState(GameState.GameStarted);
     }
-    
+
     [JsCallable]
     public void PauseGame()
     {
         SwitchGameState(GameState.GamePaused);
     }
-    
+
     [JsCallable]
     public void UnpauseGame()
     {
         SwitchGameState(GameState.GameStarted);
     }
-    
+
     [JsCallable]
     public void ReturnToMainMenu()
     {
         SwitchGameState(GameState.MainMenu);
     }
-    
+
     [JsCallable]
     public void EndGame()
     {
         SwitchGameState(GameState.GameOver);
     }
-    
+
     void Start()
     {
         SwitchGameState(_currentGameState);

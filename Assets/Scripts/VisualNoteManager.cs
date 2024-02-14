@@ -13,7 +13,7 @@ public class VisualNoteManager : Singleton<VisualNoteManager>
     public List<Transform> NoteSpawnLocations;
 
     [NonNullField] public GameObject NotesContainer;
-    
+
     // Effects References
     [NonNullField] public GameObject MissVfxPrefab;
     [NonNullField] public GameObject GoodVfxPrefab;
@@ -21,7 +21,7 @@ public class VisualNoteManager : Singleton<VisualNoteManager>
 
     // Notes in a measure. They are queue by OnCallNote and dequeued by OnResponseNote.
     private Queue<GameObject> _measureNotes = new();
-    
+
     void Start()
     {
         CallResponseGameplayManager.Instance.OnCallNote += OnCallNote;
@@ -32,7 +32,7 @@ public class VisualNoteManager : Singleton<VisualNoteManager>
     {
         _measureNotes.Clear();
     }
-    
+
     private void OnResponseNote(object sender, CallResponseGameplayManager.Judgement judgement)
     {
         switch (judgement)

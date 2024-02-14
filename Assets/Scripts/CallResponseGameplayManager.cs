@@ -35,7 +35,7 @@ namespace RhythmJam
         public event Action OnMiss;
         public event Action OnGood;
         public event Action OnPerfect;
-        
+
         public event EventHandler<Judgement> OnResponseNote;
 
         private CallResponseSong _currentSong;
@@ -50,7 +50,7 @@ namespace RhythmJam
             base.Awake();
             inputActions.FindActionMap("gameplay").Enable();
             inputActions.FindActionMap("gameplay").FindAction("beatInput").performed += OnBeatInput;
-            
+
             // RhythmEngineCore wants this to be done before Start for some reason.
             RhythmEngine.SetSong(SpacePopSong);
             RhythmEngine.InitTime();
@@ -64,11 +64,11 @@ namespace RhythmJam
                 Debug.LogError("[CallResponseGameplayManager] Current song is null!");
                 return;
             }
-            
+
             // TODO: Handle other game types
             _callNotes = new Queue<CallResponseNote>(_currentSong.CallNotes.OrderBy(note => note.Time));
             _responseNotes = new Queue<CallResponseNote>(_currentSong.ResponseNotes.OrderBy(note => note.Time));
-            
+
             RhythmEngine.SetSong(_currentSong);
         }
 
@@ -78,14 +78,14 @@ namespace RhythmJam
             RhythmEngine.Play();
             _isPlaying = true;
         }
-        
+
         private void Update()
         {
             if (!_isPlaying)
             {
                 return;
             }
-            
+
             double time = RhythmEngine.GetCurrentAudioTime();
             HandleCallNotes(time);
             HandleResponseNotes(time);
