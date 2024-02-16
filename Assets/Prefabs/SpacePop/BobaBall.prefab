@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4999127010824825561}
   - component: {fileID: 804870215759295920}
   - component: {fileID: 3805753717080579434}
+  - component: {fileID: 4410411873914606103}
   m_Layer: 0
   m_Name: BobaBall
   m_TagString: Untagged
@@ -95,5 +96,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3b86e7eb9a1d2889a0c1c66550e0ac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spaceship: {fileID: 0}
+  Speed: 1
+--- !u!114 &4410411873914606103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330321885003701937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2349cba2abbe5fed8e250312e4252ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
