@@ -23,11 +23,13 @@ public class ScoreManager : MonoBehaviour
     void OnEnable()
     {
         CallResponseGameplayManager.Instance.OnResponseNote += OnResponseNote;
+        GameLifecycleManager.Instance.OnGameStateUpdated += OnGameStateUpdated;
     }
 
     void OnDisable()
     {
         CallResponseGameplayManager.Instance.OnResponseNote -= OnResponseNote;
+        GameLifecycleManager.Instance.OnGameStateUpdated -= OnGameStateUpdated;
     }
 
     void OnResponseNote(object sender, CallResponseGameplayManager.Judgement judgement)
@@ -41,6 +43,13 @@ public class ScoreManager : MonoBehaviour
 
         GameLifecycleManager.Instance.SetScore(_score);
         Debug.Log(GameLifecycleManager.Instance.Score);
+    }
+
+    // If the game is over, submit score to leaderboard
+    void OnGameStateUpdated(object sender, GameLifecycleManager.GameState gameState)
+    {
+        if (gameState != GameLifecycleManager.GameState.GameOver) return;
+        Leaderboards.Instance.SubmitScoreToLeaderboard(_score);
     }
 }
 

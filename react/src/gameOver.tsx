@@ -1,6 +1,7 @@
 import { useGlobals, useReactiveValue } from "@reactunity/renderer";
 
 import Button from "./button";
+import Score from "./score";
 import "./index.scss";
 
 export default function GameOver(): React.ReactNode {
@@ -17,6 +18,7 @@ export default function GameOver(): React.ReactNode {
             gameLifecycleManager.ReturnToMainMenu();
           }}
         />
+		<Score value={globals.score.Value} />
       </view>
     </view>
   );
