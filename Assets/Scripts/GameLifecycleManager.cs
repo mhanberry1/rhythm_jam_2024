@@ -58,16 +58,15 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
         {
             case GameState.MainMenu:
                 UIRouter.Instance.SwitchRoutes(UIRouter.Route.MainMenu);
-                BackgroundManager.Instance.DisableBackground();
+                LevelManager.Instance.DisableLevel();
                 break;
             case GameState.Instructions:
                 UIRouter.Instance.SwitchRoutes(UIRouter.Route.Instructions);
                 break;
             case GameState.GameStarted:
                 UIRouter.Instance.SwitchRoutes(UIRouter.Route.Hud);
-                BackgroundManager.Instance.SwitchBackgrounds(_currentGameType);
+                LevelManager.Instance.SwitchLevels(_currentGameType);
                 CallResponseGameplayManager.Instance.Play();
-                VisualNoteManager.Instance.Reset();
                 SetScore(0);
                 // Unpause the game
                 Time.timeScale = 1;
