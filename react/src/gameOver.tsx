@@ -10,7 +10,7 @@ export default function GameOver(): React.ReactNode {
 
   return (
     <view className="gameover">
-      <view className="title">Game Over!</view>
+      <view className="title">{globals.status.Value}</view>
       <view className="content">
         <Button
           text="Main Menu"
@@ -18,7 +18,9 @@ export default function GameOver(): React.ReactNode {
             gameLifecycleManager.ReturnToMainMenu();
           }}
         />
-		<Score value={globals.score.Value} />
+        <view className="flex-row padding-md">
+          <Score value={globals.score.Value} />
+        </view>
       </view>
     </view>
   );

@@ -39,6 +39,10 @@ namespace RhythmJam
         public event EventHandler<Judgement> OnResponseNote;
 
         private CallResponseSong _currentSong;
+        public CallResponseSong CurrentSong
+        {
+            get { return _currentSong; }
+        }
 
         private Queue<CallResponseNote> _callNotes;
         private Queue<CallResponseNote> _responseNotes;
@@ -87,6 +91,12 @@ namespace RhythmJam
             }
 
             double time = RhythmEngine.GetCurrentAudioTime();
+
+            if (time >= _currentSong.Clip.length)
+            {
+                EndLevel();
+            }
+
             HandleCallNotes(time);
             HandleResponseNotes(time);
         }
@@ -141,6 +151,12 @@ namespace RhythmJam
                 OnResponseNote?.Invoke(this, Judgement.Miss);
                 Debug.Log("miss");
             }
+        }
+
+        // End the level if the song is over
+        private void EndLevel()
+        {
+            GameLifecycleManager.Instance.EndGame();
         }
     }
 }

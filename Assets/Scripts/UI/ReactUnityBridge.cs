@@ -10,6 +10,7 @@ public class ReactUnityBridge : MonoBehaviour {
 
     public ReactiveValue<string> route = new();
     public ReactiveValue<string> debugGameState = new();
+    public ReactiveValue<string> status = new();
     public ReactiveValue<int> score = new();
     public ReactiveValue<Leaderboards.LeaderboardScores> leaderboardScores = new();
     
@@ -25,6 +26,7 @@ public class ReactUnityBridge : MonoBehaviour {
         reactRenderer.Globals["route"] = route;
         reactRenderer.Globals["leaderboardScores"] = leaderboardScores;
         reactRenderer.Globals["score"] = score;
+        reactRenderer.Globals["status"] = status;
         reactRenderer.Globals["debugGameState"] = debugGameState;
         
         // Game System References
@@ -32,12 +34,18 @@ public class ReactUnityBridge : MonoBehaviour {
         
         GameLifecycleManager.OnGameStateUpdated += OnGameStateUpdated;
         GameLifecycleManager.OnScoreUpdated += OnScoreUpdated;
+        GameLifecycleManager.OnStatusUpdated += OnStatusUpdated;
         Leaderboards.OnLeaderboardScoresUpdated += LeaderboardsOnOnLeaderboardScoresUpdated;
     }
 
     private void OnScoreUpdated(object sender, int data)
     {
         score.Value = data;
+    }
+
+    private void OnStatusUpdated(object sender, string data)
+    {
+        status.Value = data;
     }
 
     private void LeaderboardsOnOnLeaderboardScoresUpdated(object sender, Leaderboards.LeaderboardScores data)

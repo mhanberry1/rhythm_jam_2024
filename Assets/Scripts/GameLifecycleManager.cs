@@ -24,6 +24,7 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
 
     public event EventHandler<GameState> OnGameStateUpdated;
     public event EventHandler<int> OnScoreUpdated;
+    public event EventHandler<string> OnStatusUpdated;
 
     private GameState _currentGameState = GameState.MainMenu;
 
@@ -45,6 +46,11 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
         get { return _score; }
     }
 
+    private string _status = "GameOver";
+    public string Status
+    {
+        get { return _status; }
+    }
 
     private void SwitchGameState(GameState gameState)
     {
@@ -85,6 +91,12 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
     {
         _score = score;
         OnScoreUpdated?.Invoke(this, _score);
+    }
+
+    public void SetStatus(string status)
+    {
+        _status = status;
+        OnStatusUpdated?.Invoke(this, _status);
     }
 
     [JsCallable]
