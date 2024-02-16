@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using RhythmEngine;
 
 namespace RhythmJam
 {
@@ -11,7 +10,7 @@ namespace RhythmJam
     /// </summary>
     public class SongEditor : MonoBehaviour
     {
-        [SerializeField] private RhythmEngineCore RhythmEngine;
+        [SerializeField] private BoRhythmEngineCore RhythmEngine;
         [SerializeField] private CallResponseSong SongToEdit;
 
         [Space]

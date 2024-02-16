@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputActions: {fileID: -944628639613478452, guid: 26e0510d77fd6f9318cecce7aaf8df5a, type: 3}
-  RhythmEngine: {fileID: 5762589386573243884}
-  SpacePopSong: {fileID: 0}
-  OldManRaveSong: {fileID: 0}
-  CutieGermsSong: {fileID: 0}
+  RhythmEngine: {fileID: 600066757701896792}
+  SpacePopSong: {fileID: 11400000, guid: 9eb856196588f42e08696d69dc14048b, type: 2}
+  OldManRaveSong: {fileID: 11400000, guid: 9eb856196588f42e08696d69dc14048b, type: 2}
+  CutieGermsSong: {fileID: 11400000, guid: 9eb856196588f42e08696d69dc14048b, type: 2}
 --- !u!1 &1549329771352889360
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,7 +528,7 @@ GameObject:
   m_Component:
   - component: {fileID: 612662697790456016}
   - component: {fileID: 8202887393995385543}
-  - component: {fileID: 5762589386573243884}
+  - component: {fileID: 600066757701896792}
   m_Layer: 0
   m_Name: RhythmEngine
   m_TagString: Untagged
@@ -648,7 +648,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5762589386573243884
+--- !u!114 &600066757701896792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -657,14 +657,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4211410550096422399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 355960991dad4dc4bad5605f6d51db0e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b78ca76e97f5474c932f6bf71831571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SongToPlay: {fileID: 0}
   MusicSource: {fileID: 8448965499544913009}
-  OffsetInMs: 0
-  PreStartTime: 2
-  SongToPlay: {fileID: 11400000, guid: 8bfc8b2e99e714adea030a40082d8f8a, type: 2}
-  ManualMode: 0
+  IsPaused: 0
+  SourceStartTime: 0
+  ManualMode: 1
 --- !u!1 &8519315923638668763
 GameObject:
   m_ObjectHideFlags: 0

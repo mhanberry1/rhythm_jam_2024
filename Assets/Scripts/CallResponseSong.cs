@@ -1,14 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
-using RhythmEngine;
 
 namespace RhythmJam
 {
     /// <summary>
     /// A song with a call-response structure.
     /// </summary>
-    [CreateAssetMenu(fileName = "CallResponseSong", menuName = "RhythmEngine/Songs/CallResponseSong")]
-    public class CallResponseSong : BeatSequencedSong
+    [CreateAssetMenu(fileName = "CallResponseSong", menuName = "BoRhythmEngine/Songs/CallResponseSong")]
+    public class CallResponseSong : Song
     {
         [Header("Notes")]
         public List<CallResponseNote> CallNotes = new();

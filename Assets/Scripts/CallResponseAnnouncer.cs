@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RhythmEngine;
 
 namespace RhythmJam
 {
@@ -11,8 +10,10 @@ namespace RhythmJam
 /// A class that can be used to watch the notes of a CallResponse song and trigger events when notes come up.
 /// </summary>
 [AddComponentMenu("Rhythm Engine/Extensions/Call-Response Announcer")]
-public class CallResponseAnnouncer : RhythmEngineExtension
+public class CallResponseAnnouncer : MonoBehaviour
 {
+    public BoRhythmEngineCore RhythmEngine;
+     
     /// <summary>
     /// Called when a call note is played.
     /// </summary>

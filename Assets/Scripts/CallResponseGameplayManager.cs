@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using RhythmEngine;
 
 namespace RhythmJam
 {
@@ -13,7 +12,7 @@ namespace RhythmJam
     public class CallResponseGameplayManager : Singleton<CallResponseGameplayManager>
     {
         [SerializeField] private InputActionAsset inputActions;
-        [SerializeField] private RhythmEngineCore RhythmEngine;
+        [SerializeField] private BoRhythmEngineCore RhythmEngine;
 
         [NonNullField]
         public CallResponseSong SpacePopSong;
