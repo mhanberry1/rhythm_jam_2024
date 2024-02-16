@@ -53,15 +53,24 @@ namespace RhythmJam
             base.Awake();
             inputActions.FindActionMap("gameplay").Enable();
             inputActions.FindActionMap("gameplay").FindAction("beatInput").performed += OnBeatInput;
-
-            // RhythmEngineCore wants this to be done before Start for some reason.
-            RhythmEngine.SetSong(SpacePopSong);
-            RhythmEngine.InitTime();
         }
 
         public void Initialize(GameLifecycleManager.GameType gameType)
         {
-            _currentSong = SpacePopSong;
+            Debug.Log("GameType: " + gameType);
+            switch (gameType)
+            {
+                case GameLifecycleManager.GameType.SpacePop:
+                    _currentSong = SpacePopSong;
+                    break;
+                case GameLifecycleManager.GameType.OldManRave:
+                    _currentSong = OldManRaveSong;
+                    break;
+                case GameLifecycleManager.GameType.CutieGerms:
+                    _currentSong = CutieGermsSong;
+                    break;
+            }
+
             if (_currentSong == null)
             {
                 Debug.LogError("[CallResponseGameplayManager] Current song is null!");
@@ -77,7 +86,6 @@ namespace RhythmJam
 
         public void Play()
         {
-            RhythmEngine.InitTime();
             RhythmEngine.Play();
             _isPlaying = true;
         }

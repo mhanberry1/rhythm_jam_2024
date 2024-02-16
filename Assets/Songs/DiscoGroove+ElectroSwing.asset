@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7579cb2f657234d2e8c5987bddd5fd1e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cc6d233cf853114f8e0405b58270e5a, type: 3}
   m_Name: DiscoGroove+ElectroSwing
   m_EditorClassIdentifier: 
   Clip: {fileID: 8300000, guid: 13cdfa3936f1e48309d3de86a9c6039a, type: 3}
@@ -17,9 +17,6 @@ MonoBehaviour:
   Looping: 0
   BaseBpm: 120
   BpmChanges: []
-  BeatSequences:
-    BeatSequences: []
-  BeatSequenceChanges: []
   CallNotes:
   - Time: 8
   - Time: 9
@@ -141,3 +138,6 @@ MonoBehaviour:
   CallResponseInterval: 8
   PerfectTimeMs: 50
   GoodTimeMs: 100
+  CallMidiTrackToLoad: {fileID: 0}
+  ResponseMidiTrackToLoad: {fileID: 0}
+  TimePerBeat: 0.5

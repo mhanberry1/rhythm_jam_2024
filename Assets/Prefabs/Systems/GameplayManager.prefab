@@ -101,7 +101,7 @@ MonoBehaviour:
   inputActions: {fileID: -944628639613478452, guid: 26e0510d77fd6f9318cecce7aaf8df5a, type: 3}
   RhythmEngine: {fileID: 600066757701896792}
   SpacePopSong: {fileID: 11400000, guid: 9eb856196588f42e08696d69dc14048b, type: 2}
-  OldManRaveSong: {fileID: 11400000, guid: 9eb856196588f42e08696d69dc14048b, type: 2}
+  OldManRaveSong: {fileID: 11400000, guid: 4067fe4d1ab62564b8e9316653317292, type: 2}
   CutieGermsSong: {fileID: 11400000, guid: 9eb856196588f42e08696d69dc14048b, type: 2}
 --- !u!1 &1549329771352889360
 GameObject:

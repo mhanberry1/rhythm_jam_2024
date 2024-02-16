@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cc6d233cf853114f8e0405b58270e5a, type: 3}
-  m_Name: DiscoGroove
+  m_Name: DiscoSwingSwitch
   m_EditorClassIdentifier: 
-  Clip: {fileID: 8300000, guid: 79585568d17b5489a91afa360d2f2ba0, type: 3}
+  Clip: {fileID: 8300000, guid: e76894d5d30105c43b452c3760ddb7f0, type: 3}
   FirstBeatOffset: 0
   Looping: 0
   BaseBpm: 120
@@ -106,6 +106,6 @@ MonoBehaviour:
   CallResponseInterval: 8
   PerfectTimeMs: 50
   GoodTimeMs: 100
-  CallMidiTrackToLoad: {fileID: 0}
+  CallMidiTrackToLoad: {fileID: -3097000000096066306, guid: 1f15de5714cf57d4a8ca9adb3a74ec50, type: 3}
   ResponseMidiTrackToLoad: {fileID: 0}
   TimePerBeat: 0.5
