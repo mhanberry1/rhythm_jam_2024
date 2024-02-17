@@ -115,7 +115,6 @@ namespace RhythmJam
             {
                 _callNotes.Dequeue();
                 OnCallNote?.Invoke();
-                Debug.Log("call");
             }
         }
 
@@ -127,7 +126,6 @@ namespace RhythmJam
                 _responseNotes.Dequeue();
                 OnMiss?.Invoke();
                 OnResponseNote?.Invoke(this, Judgement.Miss);
-                Debug.Log("miss");
             }
         }
 
@@ -145,18 +143,15 @@ namespace RhythmJam
                 _responseNotes.Dequeue();
                 OnPerfect?.Invoke();
                 OnResponseNote?.Invoke(this, Judgement.Perfect);
-                Debug.Log("perfect");
             } else if (accuracy < _currentSong.GoodTimeMs)
             {
                 _responseNotes.Dequeue();
                 OnGood?.Invoke();
                 OnResponseNote?.Invoke(this, Judgement.Good);
-                Debug.Log("good");
             } else
             {
                 OnMiss?.Invoke();
                 OnResponseNote?.Invoke(this, Judgement.Miss);
-                Debug.Log("miss");
             }
         }
 

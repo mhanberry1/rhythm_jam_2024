@@ -7,10 +7,11 @@ import "./index.scss";
 export default function GameOver(): React.ReactNode {
   const globals = useGlobals();
   const gameLifecycleManager = globals.gameLifecycleManager;
+  const status = useReactiveValue(globals.status);
 
   return (
     <view className="gameover">
-      <view className="title">{globals.status.Value}</view>
+      <view className="title">{status}</view>
       <view className="content">
         <Button
           text="Main Menu"

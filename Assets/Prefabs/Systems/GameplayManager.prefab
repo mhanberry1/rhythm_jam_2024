@@ -112,6 +112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 870661952259050952}
+  - component: {fileID: 2486398570369239115}
   m_Layer: 0
   m_Name: Score
   m_TagString: Untagged
@@ -134,6 +135,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3143492569150991287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2486398570369239115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549329771352889360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f35f0373a35d6e7bb933eba19b51cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GoodScore: 50
+  PerfectScore: 100
+  MissScore: 0
+  NextStreak: 10
+  MaxStreak: 4
+  BadStatus: Try harder...
+  GoodStatus: Not too shabby.
+  GreatStatus: Amazing!
 --- !u!1 &2006502721061743946
 GameObject:
   m_ObjectHideFlags: 0

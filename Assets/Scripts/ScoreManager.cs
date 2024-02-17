@@ -45,7 +45,6 @@ public class ScoreManager : MonoBehaviour
                 : MissScore * _multiplier;
 
         GameLifecycleManager.Instance.SetScore(_score);
-        Debug.Log(GameLifecycleManager.Instance.Score);
     }
 
     // If the game is over, submit score to leaderboard
