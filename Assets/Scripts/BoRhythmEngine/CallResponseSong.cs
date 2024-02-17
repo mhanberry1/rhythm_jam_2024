@@ -40,6 +40,10 @@ public class CallResponseSong : Song
         return (int)Math.Round(time / TimePerBeat);
     }
 
+    public double TimeUntilResponse()
+    {
+        return CallResponseInterval * TimePerBeat;
+    }
 }
 
 }

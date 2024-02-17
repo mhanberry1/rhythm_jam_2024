@@ -1,19 +1,38 @@
+using System;
 using UnityEngine;
+
+namespace RhythmJam
+{
 
 public class BobaBallMovement : MonoBehaviour
 {
     [SerializeField] GameObject Spaceship;
-    [SerializeField] float Speed = 1f;
 
     private Vector3 _direction;
+    private float _speed;
+    private double _t = 0;
 
     void OnEnable()
     {
-        _direction = (Spaceship.transform.position - transform.position).normalized;
+        Vector3 target = new Vector3 (
+            Spaceship.transform.position.x,
+            Spaceship.GetComponent<SpriteRenderer>().bounds.min.y,
+            0
+        );
+        Vector3 differenceVect = (target - transform.position);
+        _direction = differenceVect.normalized;
+        _speed = 0.65f * differenceVect.magnitude / (float) CallResponseGameplayManager.Instance.CurrentSong.TimeUntilResponse();
     }
 
     void Update()
     {
-        transform.Translate(_direction * Speed * Time.deltaTime);
+        _t = _t < 2 * Math.PI ? _t + Time.deltaTime: 0;
+
+        Vector3 translationVect = _direction * _speed * Time.deltaTime;
+        translationVect.x += (float) (0.03 * Math.Cos(7 * _t));
+
+        transform.Translate(translationVect);
     }
+}
+
 }
