@@ -42,7 +42,7 @@ public class MidiSongLoader : Editor
         notes.Clear();
         foreach (var time in track.NoteTimes) {
             var note = new CallResponseNote();
-            note.Time = time;
+            note.Time = time * 60d / _song.BaseBpm;
             notes.Add(note);
         }
     }

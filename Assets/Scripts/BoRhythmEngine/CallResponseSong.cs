@@ -33,16 +33,13 @@ public class CallResponseSong : Song
     public MidiTrack ResponseMidiTrackToLoad;
 
     [HideInInspector]
-    public double TimePerBeat = 0.5d;
+    public double TimePerBeat => 60d / BaseBpm;
 
     public int TimeToBeatNum(double time)
     {
         return (int)Math.Round(time / TimePerBeat);
     }
 
-    void OnValidate() {
-        TimePerBeat = 60d / BaseBpm;
-    }
 }
 
 }

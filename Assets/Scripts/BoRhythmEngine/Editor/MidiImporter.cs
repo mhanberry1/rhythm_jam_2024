@@ -15,7 +15,6 @@ public class MidiImporter : ScriptedImporter
         var midiFile = new MidiParser.MidiFile(ctx.assetPath);
 
         int trackCount = 0;
-        int bpm = 120;
         int ticksPerQuarterNote = midiFile.TicksPerQuarterNote;
         foreach(var track in midiFile.Tracks)
         {
@@ -23,12 +22,11 @@ public class MidiImporter : ScriptedImporter
             foreach(var midiEvent in track.MidiEvents) {
                 if (midiEvent.MidiEventType == MidiParser.MidiEventType.MetaEvent) {
                     if (midiEvent.Arg1 == (byte)MidiParser.MetaEventType.Tempo) {
-                        bpm = (int)midiEvent.Arg2;
-                        Debug.Log("bpm " + bpm);
+                        Debug.Log("bpm " + (int)midiEvent.Arg2);
                     }
                 }
                 if (midiEvent.MidiEventType == MidiParser.MidiEventType.NoteOn) {
-                    double time = (double)midiEvent.Time / (double)ticksPerQuarterNote * 60d / (double)bpm;
+                    double time = (double)midiEvent.Time / (double)ticksPerQuarterNote;
                     trackAsset.NoteTimes.Add(time);
                 }
             }
