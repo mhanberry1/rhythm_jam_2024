@@ -56,16 +56,20 @@
 
   font-size: 64px;
   color: white;
-  padding: 40px;
-  background: #684c92;
-  border-radius: 100px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 32px;
+  padding-right: 32px;
+  background: #a28dbd;
+  border-radius: 48px;
 
   &:active {
-    background-color: aqua;
+    background-color: #e4ccd6;
     transform: scale(1.1);
   }
 
   &:hover {
+    background-color: #e4ccd6;
     transform: scale(1.1);
   }
 }
@@ -135,6 +139,12 @@
   }
 }
 
+.hud {
+  .score {
+    font-size: 36px;
+  }
+}
+
 .pause-menu {
   height: 100%;
 
@@ -189,29 +199,34 @@
 }
 
 .leaderboard {
+  @include flex-layout(column);
+  justify-content: center;
+  align-items: center;
+  background: url("resource:DivergentDreams_altered.png");
+  height: 100%;
+
   .title {
-    margin-top: 128px;
-    margin-bottom: 128px;
+    margin-top: -200px;
+    margin-bottom: 100px;
     color: white;
-    font-size: 64px;
+    font-size: 82px;
     text-align: center;
   }
 
   .content {
     @include flex-layout(column);
-    margin: auto;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    gap: 24px;
   }
 
   .score {
     @include flex-layout(row);
-    justify-content: space-between;
-    gap: 100px;
+    font-size: 32px;
   }
 
   .button {
     font-size: 32px;
-    padding: 128px;
-    background: none;
   }
 }
