@@ -27,8 +27,19 @@ public class Leaderboards : Singleton<Leaderboards>
     public event EventHandler<LeaderboardScores> OnLeaderboardScoresUpdated;
     private LeaderboardScores _scores = new();
 
-    void Start()
+    async void Start()
     {
+        // Initialize UGS
+        await UnityServices.InitializeAsync();
+        AuthenticationService.Instance.SignedIn += () => {
+            Debug.Log("Signed in as: " + AuthenticationService.Instance.PlayerId);
+        };
+        AuthenticationService.Instance.SignInFailed += s => {
+            // Take some action here...
+            Debug.LogError("Sign in failed!");
+        };
+        await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        
         LoadLeaderboardAsync();
     }
     
@@ -44,7 +55,10 @@ public class Leaderboards : Singleton<Leaderboards>
         if (!AuthenticationService.Instance.IsSignedIn) {
             try {
                 await AuthenticationService.Instance.SignInAnonymouslyAsync();
-            } catch (Exception) { }
+            } catch (Exception)
+            {
+                Debug.LogError("[Leaderboards::LoadLeaderboardAsync] Anon sign-in failed!");
+            }
         }
 
         // NOTE: Awaits need to wrapped in try-catch otherwise if they throw an exception they will just not return.
@@ -57,6 +71,7 @@ public class Leaderboards : Singleton<Leaderboards>
     
     public async Task SubmitScoreToLeaderboard(int score)
     {
+        Debug.Log("[Leaderboards::SubmitScoreToLeaderboard] Score " + score);
         // Pull data from local cache as a fallback first.
         // This will get us:
         // - [Fallback] Best Score: Sets to the highest score this device has known in the past. It's possible that a
@@ -67,9 +82,15 @@ public class Leaderboards : Singleton<Leaderboards>
 
         // If the user is not signed in- try signing in first.
         if (!AuthenticationService.Instance.IsSignedIn) {
-            try {
+            try
+            {
                 await AuthenticationService.Instance.SignInAnonymouslyAsync();
-            } catch (Exception) { }
+            }
+            catch (Exception)
+            {
+                Debug.LogError("[Leaderboards::SubmitScoreToLeaderboard] Anon sign-in failed!");
+            }
+            Debug.Log("[Leaderboards::SubmitScoreToLeaderboard] Signed in! ID: " + AuthenticationService.Instance.PlayerId);
         }
 
         // Update latest score. This gets us:
@@ -115,27 +136,39 @@ public class Leaderboards : Singleton<Leaderboards>
         
         // In order to get a ranking for our latest score, we need to submit our latest score to the server.
         // - [Done] Latest rank
-        try {
+        try
+        {
             LeaderboardEntry scoreResponse =
                 await LeaderboardsService.Instance.AddPlayerScoreAsync(LEADERBOARD_ID,
                     _scores.LatestScore);
             _scores.LatestRanking = scoreResponse.Rank + 1;
-        } catch (Exception) { }
+        }
+        catch (Exception)
+        {
+            Debug.LogError("[Leaderboards::SubmitScoreToLeaderboard] Error submitting latest score!");
+        }
         
         // Now that we know our best score, and we've gotten our latest rank, we can resubmit to the server.
         // This will let the server know our best score so far, and we'll also get an up to date best rank.
         // - [Done] Best rank
-        try {
+        try
+        {
             LeaderboardEntry scoreResponse =
                 await LeaderboardsService.Instance.AddPlayerScoreAsync(LEADERBOARD_ID,
                     _scores.BestScore);
             _scores.BestRanking = scoreResponse.Rank + 1;
-        } catch (Exception) { }
+        }
+        catch (Exception)
+        {
+            Debug.LogError("[Leaderboards::SubmitScoreToLeaderboard] Error submitting best score!");
+        }
         
         // At this point we'll update the UI and cache the data.
         OnLeaderboardScoresUpdated?.Invoke(this, _scores);
         PlayerPrefs.SetInt(PREFS_BEST_SCORE, _scores.BestScore);
         PlayerPrefs.Save();
+        
+        Debug.Log("[Leaderboards::SubmitScoreToLeaderboard] Finished submitting!");
         
         // Finally, unrelated we can get the global score. This updates the UI by itself.
         // - [Done] Global score
