@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 namespace RhythmJam
 {
 
-public class SpaceshipAnimator : MonoBehaviour
+public class AnimateButtonPress : MonoBehaviour
 {
     [SerializeField] Sprite[] Frames;
     [SerializeField] private InputActionAsset InputActions;

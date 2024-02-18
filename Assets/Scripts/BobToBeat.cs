@@ -30,7 +30,6 @@ public class BobToBeat : MonoBehaviour
         var engine = CallResponseGameplayManager.Instance.RhythmEngine;
         var time = engine.GetCurrentAudioTime() - engine.Song.FirstBeatOffset;
         var timeToNearestBeat = CallResponseGameplayManager.Instance.CurrentSong.DistanceToNearestNBeat(time, bobInterval);
-        Debug.Log(timeToNearestBeat);
         var t = (float)(timeToNearestBeat / CallResponseGameplayManager.Instance.CurrentSong.TimePerBeat / bobInterval);
 
         var scaleX = Mathf.Lerp(1f, MaxXScale, t*t);
