@@ -12,7 +12,7 @@ namespace RhythmJam
     public class CallResponseGameplayManager : Singleton<CallResponseGameplayManager>
     {
         [SerializeField] private InputActionAsset inputActions;
-        [SerializeField] private BoRhythmEngineCore RhythmEngine;
+        public BoRhythmEngineCore RhythmEngine;
 
         [NonNullField]
         public CallResponseSong SpacePopSong;
