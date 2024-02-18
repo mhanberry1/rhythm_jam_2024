@@ -38,7 +38,7 @@ public class ScoreManager : MonoBehaviour
     void OnResponseNote(object sender, CallResponseGameplayManager.Judgement judgement)
     {
         _currentStreak = judgement == Miss ? 0 : _currentStreak + 1;
-        _multiplier = 1 + Math.Min(_currentStreak % NextStreak, MaxStreak);
+        _multiplier = 1 + Math.Min((int) _currentStreak / NextStreak, MaxStreak);
 
         _score += judgement == Good ? GoodScore * _multiplier
                 : judgement == Perfect ? PerfectScore * _multiplier

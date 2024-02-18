@@ -12,6 +12,7 @@ public class ReactUnityBridge : MonoBehaviour {
     public ReactiveValue<string> debugGameState = new();
     public ReactiveValue<string> status = new();
     public ReactiveValue<int> score = new();
+    public ReactiveValue<bool> canContinue = new();
     public ReactiveValue<Leaderboards.LeaderboardScores> leaderboardScores = new();
     
     // Game System References
@@ -28,6 +29,7 @@ public class ReactUnityBridge : MonoBehaviour {
         reactRenderer.Globals["score"] = score;
         reactRenderer.Globals["status"] = status;
         reactRenderer.Globals["debugGameState"] = debugGameState;
+        reactRenderer.Globals["canContinue"] = canContinue;
         
         // Game System References
         reactRenderer.Globals["gameLifecycleManager"] = GameLifecycleManager;
@@ -60,5 +62,6 @@ public class ReactUnityBridge : MonoBehaviour {
     void OnGameStateUpdated(object sender, GameLifecycleManager.GameState data)
     {
         debugGameState.Value = data.ToString();
+        canContinue.Value = GameLifecycleManager.CanContinue;
     }
 }

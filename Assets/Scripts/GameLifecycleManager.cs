@@ -52,6 +52,12 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
         get { return _status; }
     }
 
+    private bool _canContinue = true;
+    public bool CanContinue
+    {
+        get { return _canContinue; }
+    }
+
     private void SwitchGameState(GameState gameState)
     {
         switch (gameState)
@@ -130,6 +136,7 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
     [JsCallable]
     public void EndGame()
     {
+        _canContinue = _currentGameType != GameType.OldManRave; 
         SwitchGameState(GameState.GameOver);
     }
 

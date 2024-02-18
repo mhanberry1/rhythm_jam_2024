@@ -9,18 +9,12 @@ export default function MainMenu(): React.ReactNode {
 
   return (
     <view className="main-menu">
-      <view className="title">Rhythm Jam 2024</view>
+      <view className="title">Divergent Dreams</view>
       <view className="content">
         <Button
-          text="Space Pop"
+          text="Start Game"
           onClick={() => {
             gameLifecycleManager.StartGame(0);
-          }}
-        />
-        <Button
-          text="Old Man Rave"
-          onClick={() => {
-            gameLifecycleManager.StartGame(1);
           }}
         />
         <Button
