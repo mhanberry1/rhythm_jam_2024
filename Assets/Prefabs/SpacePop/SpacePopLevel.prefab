@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 1955804076515153113}
   - component: {fileID: 4106500044449532619}
   - component: {fileID: 7137213392056169111}
+  - component: {fileID: 3987901374963876543}
   m_Layer: 0
   m_Name: Boba1
   m_TagString: Untagged
@@ -145,6 +146,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Modifier: 0.2
+  DivergencePosition: {x: 0, y: 0, z: 0}
+  DivergenceTransitionTime: 0
+--- !u!114 &3987901374963876543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3782268030388232957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7a0ef2bc1b3754e8c2cf3bb1df42d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxScale: 1.05
 --- !u!1 &4230080726197416264
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +294,7 @@ GameObject:
   - component: {fileID: 7179773925296947783}
   - component: {fileID: 7753261645135929132}
   - component: {fileID: 6712489714297227782}
+  - component: {fileID: 4065652548799390505}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Untagged
@@ -382,6 +399,19 @@ MonoBehaviour:
   Shield: {fileID: 9014746190021165361}
   inputActions: {fileID: -944628639613478452, guid: 26e0510d77fd6f9318cecce7aaf8df5a, type: 3}
   duration: 0.2
+--- !u!114 &4065652548799390505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352400571645492551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7a0ef2bc1b3754e8c2cf3bb1df42d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxScale: 1.05
 --- !u!1 &7769487247926488054
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +423,7 @@ GameObject:
   - component: {fileID: 2987794996756136644}
   - component: {fileID: 4448224169699187355}
   - component: {fileID: 8200330404086483553}
+  - component: {fileID: 30968089028615194}
   m_Layer: 0
   m_Name: Boba2
   m_TagString: Untagged
@@ -480,6 +511,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Modifier: 0.2
+  DivergencePosition: {x: 0, y: 0, z: 0}
+  DivergenceTransitionTime: 0
+--- !u!114 &30968089028615194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7769487247926488054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7a0ef2bc1b3754e8c2cf3bb1df42d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxScale: 1.05
 --- !u!1 &9014746190021165361
 GameObject:
   m_ObjectHideFlags: 0

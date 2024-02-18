@@ -9,7 +9,6 @@ export default function MainMenu(): React.ReactNode {
 
   return (
     <view className="main-menu">
-      <view className="title">Divergent Dreams</view>
       <view className="content">
         <Button
           text="Start Game"

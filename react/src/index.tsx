@@ -9,7 +9,6 @@ import MainMenu from "./mainMenu";
 import PauseMenu from "./pauseMenu";
 import Instructions from "./instructions";
 import Hud from "./hud";
-import Debug from "./debug";
 import GameOver from "./gameOver";
 import Leaderboard from "./leaderboard";
 
@@ -34,7 +33,6 @@ export default function App() {
         <Route path="/gameOver" element={<GameOver />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
       </Routes>
-      <Debug />
     </>
   );
 }
