@@ -61,6 +61,15 @@ public class CallResponseSong : Song
         var nextBeat = lastBeat + 1;
         return Math.Min(time - lastBeat * TimePerBeat, nextBeat * TimePerBeat - time);
     }
+    
+    public double DistanceToNearestNBeat(double time, int n)
+    {
+        var timePerNBeat = TimePerBeat * n;
+        var lastBeat = (int)(time / timePerNBeat);
+        var nextBeat = lastBeat + 1;
+        return Math.Min(time - lastBeat * timePerNBeat, nextBeat * timePerNBeat - time);
+    }
+
 }
 
 }
