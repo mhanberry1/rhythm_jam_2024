@@ -35,6 +35,8 @@ namespace RhythmJam
 
         public event EventHandler<Judgement> OnResponseNote;
         public event EventHandler<SongEvent.EventType> OnSongEvent;
+        // Called each beat, with beat number
+        public event EventHandler<int> OnBeat;
 
         private CallResponseSong _currentSong;
         public CallResponseSong CurrentSong
@@ -45,6 +47,7 @@ namespace RhythmJam
         private Queue<CallResponseNote> _callNotes;
         private Queue<CallResponseNote> _responseNotes;
         private Queue<SongEvent> _songEvents;
+        private int _nextBeat = 1;
 
         private bool _isPlaying = false;
 
@@ -105,6 +108,7 @@ namespace RhythmJam
             HandleCallNotes(time);
             HandleResponseNotes(time);
             HandleSongEvent(time);
+            HandleBeat(time);
         }
 
         // Remove call notes that have passed and invoke event handler
@@ -135,6 +139,14 @@ namespace RhythmJam
                 var e = _songEvents.Dequeue();
                 Debug.Log("SongEvent: " + e.Type);
                 OnSongEvent?.Invoke(this, e.Type);
+            }
+        }
+
+        private void HandleBeat(double time)
+        {
+            if (time > _nextBeat * CurrentSong.TimePerBeat) {
+                OnBeat?.Invoke(this, _nextBeat);
+                _nextBeat += 1;
             }
         }
 
