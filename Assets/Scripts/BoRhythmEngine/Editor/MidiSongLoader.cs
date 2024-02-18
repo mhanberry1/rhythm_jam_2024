@@ -35,6 +35,9 @@ public class MidiSongLoader : Editor
                 // If no response midi specified, just copy call notes with delay
                 AutoPopulateResponses();
             }
+            AssetDatabase.Refresh();
+            EditorUtility.SetDirty(_song);
+            AssetDatabase.SaveAssets();
         }
     }
 

@@ -28,37 +28,80 @@ MonoBehaviour:
   - Time: 18.5
   - Time: 19
   - Time: 24
-  - Time: 24.5
-  - Time: 25.5
+  - Time: 25
   - Time: 26
   - Time: 27
-  - Time: 32.5
+  - Time: 32
+  - Time: 33
   - Time: 33.5
   - Time: 34.5
   - Time: 35
-  - Time: 40.5
+  - Time: 40
+  - Time: 41
   - Time: 41.5
-  - Time: 42.5
+  - Time: 42
   - Time: 43
+  - Time: 48
   - Time: 48.5
   - Time: 49.5
   - Time: 50.5
   - Time: 51
-  - Time: 56
   - Time: 56.5
-  - Time: 57.25
-  - Time: 57.75
-  - Time: 58.25
+  - Time: 57.5
+  - Time: 58
+  - Time: 58.5
   - Time: 59
-  - Time: 59.5
+  - Time: 64
   - Time: 64.5
+  - Time: 64.75
+  - Time: 65
   - Time: 65.5
   - Time: 66.5
   - Time: 67
+  - Time: 72
+  - Time: 72.25
   - Time: 72.5
+  - Time: 72.75
+  - Time: 73
   - Time: 73.5
+  - Time: 74
+  - Time: 74.25
   - Time: 74.5
+  - Time: 74.75
   - Time: 75
+  - Time: 80
+  - Time: 80.25
+  - Time: 80.5
+  - Time: 80.75
+  - Time: 81
+  - Time: 81.5
+  - Time: 82
+  - Time: 82.25
+  - Time: 82.5
+  - Time: 82.75
+  - Time: 83
+  - Time: 88
+  - Time: 88.25
+  - Time: 88.5
+  - Time: 88.75
+  - Time: 89
+  - Time: 89.5
+  - Time: 90
+  - Time: 90.25
+  - Time: 90.5
+  - Time: 90.75
+  - Time: 91
+  - Time: 96
+  - Time: 96.25
+  - Time: 96.5
+  - Time: 96.75
+  - Time: 97
+  - Time: 97.5
+  - Time: 98
+  - Time: 98.25
+  - Time: 98.5
+  - Time: 98.75
+  - Time: 99
   ResponseNotes:
   - Time: 12
   - Time: 13
@@ -70,37 +113,80 @@ MonoBehaviour:
   - Time: 22.5
   - Time: 23
   - Time: 28
-  - Time: 28.5
-  - Time: 29.5
+  - Time: 29
   - Time: 30
   - Time: 31
-  - Time: 36.5
+  - Time: 36
+  - Time: 37
   - Time: 37.5
   - Time: 38.5
   - Time: 39
-  - Time: 44.5
+  - Time: 44
+  - Time: 45
   - Time: 45.5
-  - Time: 46.5
+  - Time: 46
   - Time: 47
+  - Time: 52
   - Time: 52.5
   - Time: 53.5
   - Time: 54.5
   - Time: 55
-  - Time: 60
   - Time: 60.5
-  - Time: 61.25
-  - Time: 61.75
-  - Time: 62.25
+  - Time: 61.5
+  - Time: 62
+  - Time: 62.5
   - Time: 63
-  - Time: 63.5
+  - Time: 68
   - Time: 68.5
+  - Time: 68.75
+  - Time: 69
   - Time: 69.5
   - Time: 70.5
   - Time: 71
+  - Time: 76
+  - Time: 76.25
   - Time: 76.5
+  - Time: 76.75
+  - Time: 77
   - Time: 77.5
+  - Time: 78
+  - Time: 78.25
   - Time: 78.5
+  - Time: 78.75
   - Time: 79
+  - Time: 84
+  - Time: 84.25
+  - Time: 84.5
+  - Time: 84.75
+  - Time: 85
+  - Time: 85.5
+  - Time: 86
+  - Time: 86.25
+  - Time: 86.5
+  - Time: 86.75
+  - Time: 87
+  - Time: 92
+  - Time: 92.25
+  - Time: 92.5
+  - Time: 92.75
+  - Time: 93
+  - Time: 93.5
+  - Time: 94
+  - Time: 94.25
+  - Time: 94.5
+  - Time: 94.75
+  - Time: 95
+  - Time: 100
+  - Time: 100.25
+  - Time: 100.5
+  - Time: 100.75
+  - Time: 101
+  - Time: 101.5
+  - Time: 102
+  - Time: 102.25
+  - Time: 102.5
+  - Time: 102.75
+  - Time: 103
   BeatsPerBar: 4
   BeatSubdivisions: 4
   CallResponseInterval: 8
@@ -108,4 +194,3 @@ MonoBehaviour:
   GoodTimeMs: 100
   CallMidiTrackToLoad: {fileID: -3097000000096066306, guid: 1f15de5714cf57d4a8ca9adb3a74ec50, type: 3}
   ResponseMidiTrackToLoad: {fileID: 0}
-  TimePerBeat: 0.5
