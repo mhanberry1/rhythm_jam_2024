@@ -152,7 +152,7 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
     [JsCallable]
     public void ToNextLevel()
     {
-        StartGame(GameType.OldManRave);
+        StartGame(GameType.OldManRave, false);
     }
 
     void Start()
