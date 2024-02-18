@@ -99,7 +99,7 @@
 
   .text {
     color: white;
-    font-size: 12px;
+    font-size: 24px;
   }
 
   .button {
@@ -122,12 +122,18 @@
   align-items: center;
   height: 100%;
   background: url("resource:DivergentDreams.png");
+  background-size: cover;
+  background-position: center;
 
   .content {
     margin-top: 470px;
     @include flex-layout(column);
     align-items: center;
-    gap: 24px;
+  }
+
+  // Workaround for lack of "gap" support
+  .content > *:not(:first-child) {
+    margin-top: 48px;
   }
 
   .title {
@@ -152,11 +158,15 @@
     padding-left: 24px;
     padding-right: 24px;
     color: white;
-    gap: 24px;
 
     .button {
       font-size: 32px;
     }
+  }
+
+  // Workaround for lack of "gap" support
+  .container > *:not(:first-child) {
+    margin-top: 24px;
   }
 
   .black-bar {
@@ -187,7 +197,7 @@
     margin-bottom: 128px;
     text-align: center;
     color: white;
-    font-size: 64px;
+    font-size: 82px;
   }
 
   .score {
@@ -196,6 +206,24 @@
     justify-content: center;
     margin-top: 20px;
   }
+
+  .latest {
+    margin-top: -64px;
+    font-size: 64px;
+  }
+  
+  .ranking {
+    margin-bottom: 64px;
+    font-size: 64px;
+  }
+
+  .mainMenuButton {
+    margin-top: 64px;
+    margin-bottom: -64px;
+    font-size: 48px;
+    width: 340px;
+    align-self: center;
+  }
 }
 
 .leaderboard {
@@ -203,6 +231,8 @@
   justify-content: center;
   align-items: center;
   background: url("resource:DivergentDreams_altered.png");
+  background-size: cover;
+  background-position: center;
   height: 100%;
 
   .title {
@@ -218,7 +248,13 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 100px;
-    gap: 24px;
+
+
+  }
+
+  // Workaround for lack of "gap" support
+  .content > *:not(:first-child) {
+    margin-top: 24px;
   }
 
   .score {

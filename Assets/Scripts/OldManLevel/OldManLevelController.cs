@@ -37,6 +37,8 @@ public class OldManLevelController : MonoBehaviour
 
     private float _djPointTimeoutSec = 0f;
 
+    [NonNullField] public GameObject NoteIndicator;
+
     private enum OldManAnimation
     {
         Walker,
@@ -58,8 +60,13 @@ public class OldManLevelController : MonoBehaviour
         CallResponseGameplayManager.Instance.OnSongEvent += OnSongEvent;
         CallResponseGameplayManager.Instance.OnCallNote += OnCallNote;
         CallResponseGameplayManager.Instance.OnResponseNote += OnResponseNote;
+    }
 
+    public void Initialize()
+    {
+        _oldManAnimation = OldManAnimation.None;
         SwitchAnimationSet(OldManAnimation.Walker);
+        NoteIndicator.SetActive(true);
     }
 
     private void OnResponseNote(object sender, CallResponseGameplayManager.Judgement judgment)
@@ -78,7 +85,7 @@ public class OldManLevelController : MonoBehaviour
                     SwitchAnimationSet(OldManAnimation.Dance2);
                 }
                 
-                if (_callGroupNumber == 8)
+                if (_callGroupNumber == 11)
                 {
                     SwitchAnimationSet(OldManAnimation.Dance3);
                 }
@@ -92,8 +99,13 @@ public class OldManLevelController : MonoBehaviour
         // If it's the last response note, do the Victory pose!
         if (CallResponseGameplayManager.Instance.IsLastResponseNote())
         {
-            SwitchAnimationSet(OldManAnimation.Victory);   
+            OnLastResponseNote();
         }
+    }
+
+    private void OnLastResponseNote()
+    {
+        SwitchAnimationSet(OldManAnimation.Victory);   
     }
 
     private void SwitchAnimationSet(OldManAnimation oldManAnimation)

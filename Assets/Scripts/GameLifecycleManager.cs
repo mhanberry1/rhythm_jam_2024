@@ -28,6 +28,8 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
 
     private GameState _currentGameState = GameState.MainMenu;
 
+    [NonNullField] public OldManLevelController OldManLevelController;
+
     public GameState CurrentGameState
     {
         get { return _currentGameState; }
@@ -114,6 +116,10 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
             SetScore(0);
         }
         _currentGameType = gameType;
+        if (_currentGameType == GameType.OldManRave)
+        {
+            OldManLevelController.Initialize();
+        }
         CallResponseGameplayManager.Instance.Initialize(_currentGameType);
         SwitchGameState(GameState.GameStarted);
     }
@@ -139,6 +145,11 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
     [JsCallable]
     public void EndLevel()
     {
+        if (_currentGameState == GameState.GameOver)
+        {
+            return;
+        }
+        
         _canContinue = _currentGameType != GameType.OldManRave; 
         SwitchGameState(GameState.GameOver);
         // TODO: Stop RhythmEngine if its not stopped.

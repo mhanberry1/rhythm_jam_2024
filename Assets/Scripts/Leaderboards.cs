@@ -22,6 +22,7 @@ public class Leaderboards : Singleton<Leaderboards>
         public int BestScore;
         public int BestRanking;
         public int GlobalBestScore;
+        public int NumberScores;
     }
     
     public event EventHandler<LeaderboardScores> OnLeaderboardScoresUpdated;
@@ -180,6 +181,7 @@ public class Leaderboards : Singleton<Leaderboards>
             LEADERBOARD_ID,
             new GetScoresOptions { Offset = 0, Limit = 1 }
         );
+        _scores.NumberScores = scoresResponse.Total;
         if (scoresResponse.Results.Count == 0) {
             _scores.GlobalBestScore = 0;
         } else {

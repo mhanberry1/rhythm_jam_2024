@@ -13,7 +13,7 @@ export default function MainMenu(): React.ReactNode {
         <Button
           text="Start Game"
           onClick={() => {
-            gameLifecycleManager.StartGame(0);
+            gameLifecycleManager.StartGame(0, true);
           }}
         />
         <Button

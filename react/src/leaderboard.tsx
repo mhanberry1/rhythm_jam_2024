@@ -9,6 +9,7 @@ interface LeaderboardScores {
   BestScore: number;
   BestRanking: number;
   GlobalBestScore: number;
+  NumberScores: number;
 }
 
 export default function Leaderboard() {
@@ -23,15 +24,22 @@ export default function Leaderboard() {
     BestScore,
     BestRanking,
     GlobalBestScore,
+    NumberScores,
   } = leaderboardScores;
 
   return (
     <view className="leaderboard">
       <view className="title">Leaderboard</view>
       <view className="content">
-        <view className="score">{`My Best Score:  ${BestScore}`}</view>
-        <view className="score">{`My Best Ranking:  #${BestRanking}`}</view>
-        <view className="score">{`World Top Score:  ${GlobalBestScore}`}</view>
+        <view className="score">{`My Best Score:  ${
+          BestScore == 0 ? "N/A" : BestScore
+        }`}</view>
+        <view className="score">{`My Best Ranking:  #${
+          BestRanking == 0 ? "N/A" : BestRanking
+        } out of ${NumberScores} players`}</view>
+        <view className="score">{`World Top Score:  ${
+          GlobalBestScore == 0 ? "N/A" : GlobalBestScore
+        }`}</view>
       </view>
       <Button
         text="Main Menu"
