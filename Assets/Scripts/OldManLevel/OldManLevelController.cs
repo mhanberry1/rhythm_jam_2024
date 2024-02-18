@@ -103,9 +103,10 @@ public class OldManLevelController : MonoBehaviour
         }
     }
 
-    private void OnLastResponseNote()
+    public void OnLastResponseNote()
     {
-        SwitchAnimationSet(OldManAnimation.Victory);   
+        SwitchAnimationSet(OldManAnimation.Victory);
+        NoteIndicator.SetActive(false);
     }
 
     private void SwitchAnimationSet(OldManAnimation oldManAnimation)
