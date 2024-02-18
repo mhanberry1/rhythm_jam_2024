@@ -44,10 +44,11 @@ public class OldManLevelController : MonoBehaviour
         Dance2,
         Dance3,
         Victory,
-        Miss
+        Miss,
+        None
     }
     
-    private OldManAnimation _oldManAnimation = OldManAnimation.Walker;
+    private OldManAnimation _oldManAnimation = OldManAnimation.None;
     private int _animationFrame = 0;
     
     // Start is called before the first frame update
@@ -67,6 +68,21 @@ public class OldManLevelController : MonoBehaviour
         {
             case CallResponseGameplayManager.Judgement.Perfect:
             case CallResponseGameplayManager.Judgement.Good:
+                if (_callGroupNumber == 4)
+                {
+                    SwitchAnimationSet(OldManAnimation.Dance1);
+                }
+                
+                if (_callGroupNumber == 6)
+                {
+                    SwitchAnimationSet(OldManAnimation.Dance2);
+                }
+                
+                if (_callGroupNumber == 8)
+                {
+                    SwitchAnimationSet(OldManAnimation.Dance3);
+                }
+                
                 AdvanceAnimationFrame(_oldManAnimation);
                 break;
             case CallResponseGameplayManager.Judgement.Miss:
@@ -76,6 +92,12 @@ public class OldManLevelController : MonoBehaviour
 
     private void SwitchAnimationSet(OldManAnimation animation)
     {
+        if (_oldManAnimation == animation)
+        {
+            // Don't do anything if the animation doesn't actually change.
+            return;
+        }
+        
         _animationFrame = 0;
         _oldManAnimation = animation;
         DisableSprites(WalkerAnimationSprites);
