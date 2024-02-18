@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7a0ef2bc1b3754e8c2cf3bb1df42d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bobInterval: 4
   MaxYScale: 1.05
   MaxXScale: 1
   MinRotation: -10
@@ -416,6 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7a0ef2bc1b3754e8c2cf3bb1df42d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bobInterval: 1
   MaxYScale: 1.05
   MaxXScale: 1
   MinRotation: 0
@@ -567,6 +569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7a0ef2bc1b3754e8c2cf3bb1df42d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bobInterval: 4
   MaxYScale: 1.05
   MaxXScale: 1
   MinRotation: -10

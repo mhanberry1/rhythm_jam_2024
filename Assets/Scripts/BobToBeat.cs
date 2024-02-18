@@ -7,6 +7,7 @@ namespace RhythmJam
 
 public class BobToBeat : MonoBehaviour
 {
+    public int bobInterval = 1;
     public float MaxYScale = 1.05f;
     public float MaxXScale = 1.0f;
     public float MinRotation = 0f;
@@ -28,8 +29,9 @@ public class BobToBeat : MonoBehaviour
         // Get time to nearest beat. The closer to a beat, the bigger the scale
         var engine = CallResponseGameplayManager.Instance.RhythmEngine;
         var time = engine.GetCurrentAudioTime() - engine.Song.FirstBeatOffset;
-        var timeToNearestBeat = CallResponseGameplayManager.Instance.CurrentSong.DistanceToNearestNBeat(time, 2);
-        var t = (float)(timeToNearestBeat / CallResponseGameplayManager.Instance.CurrentSong.TimePerBeat);
+        var timeToNearestBeat = CallResponseGameplayManager.Instance.CurrentSong.DistanceToNearestNBeat(time, bobInterval);
+        Debug.Log(timeToNearestBeat);
+        var t = (float)(timeToNearestBeat / CallResponseGameplayManager.Instance.CurrentSong.TimePerBeat / bobInterval);
 
         var scaleX = Mathf.Lerp(1f, MaxXScale, t*t);
         var scaleY = Mathf.Lerp(1f, MaxYScale, t*t);
