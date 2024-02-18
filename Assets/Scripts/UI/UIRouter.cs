@@ -11,6 +11,7 @@ public class UIRouter : Singleton<UIRouter> {
         Instructions,
         Hud,
         GameOver,
+        Leaderboard,
     }
 
     public Route DebugRoute = Route.None;
@@ -46,6 +47,9 @@ public class UIRouter : Singleton<UIRouter> {
                 break;
             case Route.GameOver:
                 routePath = "/gameOver";
+                break;
+            case Route.Leaderboard:
+                routePath = "/leaderboard";
                 break;
         }
         return routePath;

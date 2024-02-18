@@ -11,6 +11,7 @@ import Instructions from "./instructions";
 import Hud from "./hud";
 import Debug from "./debug";
 import GameOver from "./gameOver";
+import Leaderboard from "./leaderboard";
 
 export default function App() {
   const globals = useGlobals();
@@ -31,6 +32,7 @@ export default function App() {
         <Route path="/instructions" element={<Instructions />} />
         <Route path="/hud" element={<Hud />} />
         <Route path="/gameOver" element={<GameOver />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
       </Routes>
       <Debug />
     </>

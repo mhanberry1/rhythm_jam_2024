@@ -26,7 +26,6 @@ public class BobaBallMovement : MonoBehaviour
         _direction = differenceVect.normalized;
         _speed = 0.65f * differenceVect.magnitude / (float) CallResponseGameplayManager.Instance.CurrentSong.TimeUntilResponse();
         _originalPos = transform.position;
-        Debug.Log(CallResponseGameplayManager.Instance.CurrentSong.TimeUntilResponse());
     }
 
     void Update()

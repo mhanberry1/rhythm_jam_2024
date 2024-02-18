@@ -20,9 +20,6 @@ namespace RhythmJam
         [NonNullField]
         public CallResponseSong OldManRaveSong;
 
-        [NonNullField]
-        public CallResponseSong CutieGermsSong;
-
         public enum Judgement
         {
             Good,
@@ -66,9 +63,6 @@ namespace RhythmJam
                     break;
                 case GameLifecycleManager.GameType.OldManRave:
                     _currentSong = OldManRaveSong;
-                    break;
-                case GameLifecycleManager.GameType.CutieGerms:
-                    _currentSong = CutieGermsSong;
                     break;
             }
 

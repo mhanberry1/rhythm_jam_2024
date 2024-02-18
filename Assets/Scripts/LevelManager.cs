@@ -6,7 +6,6 @@ public class LevelManager : Singleton<LevelManager>
 {
     public GameObject SpacePopLevel;
     public GameObject OldManRaveLevel;
-    public GameObject CutieGermsLevel;
 
     public void SwitchLevels(GameLifecycleManager.GameType gameType)
     {
@@ -20,9 +19,6 @@ public class LevelManager : Singleton<LevelManager>
             case GameLifecycleManager.GameType.OldManRave:
                 OldManRaveLevel.SetActive(true);
                 break;
-            case GameLifecycleManager.GameType.CutieGerms:
-                CutieGermsLevel.SetActive(true);
-                break;
         }
     }
 
@@ -30,6 +26,5 @@ public class LevelManager : Singleton<LevelManager>
     {
         SpacePopLevel.SetActive(false);
         OldManRaveLevel.SetActive(false);
-        CutieGermsLevel.SetActive(false);
     }
 }

@@ -24,9 +24,9 @@ export default function MainMenu(): React.ReactNode {
           }}
         />
         <Button
-          text="Cutie Germs"
+          text="Leaderboard"
           onClick={() => {
-            gameLifecycleManager.StartGame(2);
+            gameLifecycleManager.ToLeaderboard();
           }}
         />
       </view>

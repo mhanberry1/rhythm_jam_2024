@@ -162,3 +162,30 @@
     font-size: 32px;
   }
 }
+
+.leaderboard {
+  .title {
+    margin-top: 128px;
+    margin-bottom: 128px;
+    color: white;
+    font-size: 64px;
+    text-align: center;
+  }
+
+  .content {
+    @include flex-layout(column);
+    margin: auto;
+    gap: 20px;
+  }
+
+  .score {
+    @include flex-layout(row);
+    justify-content: space-between;
+    gap: 100px;
+  }
+
+  .button {
+      font-size: 32px;
+      padding: 128px;
+  }
+}

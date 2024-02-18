@@ -13,13 +13,13 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
         GameStarted,
         GamePaused,
         GameOver,
+        Leaderboard,
     }
 
     public enum GameType
     {
         SpacePop,
         OldManRave,
-        CutieGerms,
     }
 
     public event EventHandler<GameState> OnGameStateUpdated;
@@ -80,6 +80,9 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
             case GameState.GameOver:
                 UIRouter.Instance.SwitchRoutes(UIRouter.Route.GameOver);
                 break;
+            case GameState.Leaderboard:
+                UIRouter.Instance.SwitchRoutes(UIRouter.Route.Leaderboard);
+                break;
         }
 
         _currentGameState = gameState;
@@ -128,6 +131,12 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
     public void EndGame()
     {
         SwitchGameState(GameState.GameOver);
+    }
+
+    [JsCallable]
+    public void ToLeaderboard()
+    {
+        SwitchGameState(GameState.Leaderboard);
     }
 
     void Start()
