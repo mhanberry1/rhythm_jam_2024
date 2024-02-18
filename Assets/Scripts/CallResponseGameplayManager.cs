@@ -186,5 +186,17 @@ namespace RhythmJam
         {
             GameLifecycleManager.Instance.EndLevel();
         }
+        
+        public double TimeUntilCallNote()
+        {
+            if (_callNotes.Count == 0)
+            {
+                return -1;
+            }
+            else
+            {
+                return _callNotes.Peek().Time - RhythmEngine.GetCurrentAudioTime();
+            }
+        }
     }
 }
