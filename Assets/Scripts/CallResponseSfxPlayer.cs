@@ -7,7 +7,6 @@ namespace RhythmJam
 
 public class CallResponseSfxPlayer : MonoBehaviour
 {
-    public CallResponseGameplayManager GameManager;
     public AudioSource CallAudioSource;
     public AudioSource HitAudioSource;
     public AudioSource MissAudioSource;
@@ -15,13 +14,13 @@ public class CallResponseSfxPlayer : MonoBehaviour
     private float _delay = 0.1f;
 
     void OnEnable() {
-        GameManager.OnCallNote += OnCallNote;
-        GameManager.OnResponseNote += OnResponseNote;
+        CallResponseGameplayManager.Instance.OnCallNote += OnCallNote;
+        CallResponseGameplayManager.Instance.OnResponseNote += OnResponseNote;
     }
 
     void OnDisable() {
-        GameManager.OnCallNote -= OnCallNote;
-        GameManager.OnResponseNote -= OnResponseNote;
+        CallResponseGameplayManager.Instance.OnCallNote -= OnCallNote;
+        CallResponseGameplayManager.Instance.OnResponseNote -= OnResponseNote;
     }
 
     void OnCallNote() {
