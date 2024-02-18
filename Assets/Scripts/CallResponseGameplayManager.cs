@@ -34,6 +34,7 @@ namespace RhythmJam
         public event Action OnPerfect;
 
         public event EventHandler<Judgement> OnResponseNote;
+        public event EventHandler<SongEvent.EventType> OnSongEvent;
 
         private CallResponseSong _currentSong;
         public CallResponseSong CurrentSong
@@ -43,6 +44,7 @@ namespace RhythmJam
 
         private Queue<CallResponseNote> _callNotes;
         private Queue<CallResponseNote> _responseNotes;
+        private Queue<SongEvent> _songEvents;
 
         private bool _isPlaying = false;
 
@@ -75,6 +77,7 @@ namespace RhythmJam
             // TODO: Handle other game types
             _callNotes = new Queue<CallResponseNote>(_currentSong.CallNotes.OrderBy(note => note.Time));
             _responseNotes = new Queue<CallResponseNote>(_currentSong.ResponseNotes.OrderBy(note => note.Time));
+            _songEvents = new Queue<SongEvent>(_currentSong.SongEvents.OrderBy(e => e.Time));
 
             RhythmEngine.SetSong(_currentSong);
         }
@@ -101,6 +104,7 @@ namespace RhythmJam
 
             HandleCallNotes(time);
             HandleResponseNotes(time);
+            HandleSongEvent(time);
         }
 
         // Remove call notes that have passed and invoke event handler
@@ -121,6 +125,16 @@ namespace RhythmJam
                 _responseNotes.Dequeue();
                 OnMiss?.Invoke();
                 OnResponseNote?.Invoke(this, Judgement.Miss);
+            }
+        }
+
+        private void HandleSongEvent(double time)
+        {
+            while(_songEvents.Count > 0 && _songEvents.Peek().Time < time)
+            {
+                var e = _songEvents.Dequeue();
+                Debug.Log("SongEvent: " + e.Type);
+                OnSongEvent?.Invoke(this, e.Type);
             }
         }
 

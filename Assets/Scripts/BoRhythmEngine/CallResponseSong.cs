@@ -14,6 +14,9 @@ public class CallResponseSong : Song
     public List<CallResponseNote> CallNotes = new();
     public List<CallResponseNote> ResponseNotes = new();
 
+    [Header("Events")]
+    public List<SongEvent> SongEvents = new();
+
     [Tooltip("How many beats in a bar")]
     public int BeatsPerBar = 4;
 
@@ -41,6 +44,10 @@ public class CallResponseSong : Song
     public int TimeToBeatNum(double time)
     {
         return (int)Math.Round(time / TimePerBeat);
+    }
+
+    public int TimeToBarNum(double time) {
+        return (int)(time / TimePerBeat / BeatsPerBar);
     }
 
     public double TimeUntilResponse()

@@ -227,10 +227,14 @@ MonoBehaviour:
   - Time: 162.85714285714286
   - Time: 163.71428571428572
   - Time: 164.14285714285714
+  SongEvents:
+  - Time: 75.4
+    Type: 0
   BeatsPerBar: 4
   BeatSubdivisions: 4
   CallResponseInterval: 2
   PerfectTimeMs: 50
   GoodTimeMs: 100
+  MissTimeMs: 200
   CallMidiTrackToLoad: {fileID: -3097000000096066306, guid: 8a2ea17ea55e2424da1611eece7e9f1a, type: 3}
   ResponseMidiTrackToLoad: {fileID: 0}

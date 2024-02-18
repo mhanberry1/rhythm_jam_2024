@@ -11,15 +11,10 @@ public class ShootBoba : MonoBehaviour
     [SerializeField] private GameObject Boba2;
     [SerializeField] private GameObject BobaBallPrefab;
 
-    private GameObject _currentShooter;
-    private bool _newMeasure = false;
-
     void OnEnable()
     {
         CallResponseGameplayManager.Instance.OnCallNote += OnCallNote;
         CallResponseGameplayManager.Instance.OnResponseNote += OnResponseNote;
-
-        _currentShooter = Boba1;
     }
 
     void OnDisable()
@@ -30,16 +25,24 @@ public class ShootBoba : MonoBehaviour
 
     void OnCallNote()
     {
-        Instantiate(BobaBallPrefab, _currentShooter.transform.position, Quaternion.identity).SetActive(true);
-        _newMeasure = true;
+        var currentShooter = GetCurrentShooter();
+        Instantiate(BobaBallPrefab, currentShooter.transform.position, Quaternion.identity).SetActive(true);
     }
 
     void OnResponseNote(object sender, CallResponseGameplayManager.Judgement judgement)
     {
-        if (!_newMeasure) return;
+    }
 
-        _currentShooter = _currentShooter == Boba1 ? Boba2 : Boba1;
-        _newMeasure = false;
+    GameObject GetCurrentShooter() {
+        var time = CallResponseGameplayManager.Instance.RhythmEngine.GetCurrentAudioTime();
+        var song = CallResponseGameplayManager.Instance.CurrentSong;
+        var measureNum = song.TimeToBarNum(time);
+        // 2 measures one boba, 2 measures another boba
+        if ((measureNum / 2) % 2 == 0) {
+            return Boba1; 
+        } else {
+            return Boba2;
+        }
     }
 }
 
