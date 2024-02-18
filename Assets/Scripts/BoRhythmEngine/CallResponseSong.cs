@@ -29,6 +29,9 @@ public class CallResponseSong : Song
     [Tooltip("Input time offset (in milliseconds) in which a note will be considered 'good'")]
     public double GoodTimeMs = 100;
 
+    [Tooltip("Input time offset (in milliseconds) in which a note will be considered close enough to miss")]
+    public double MissTimeMs = 200;
+
     public MidiTrack CallMidiTrackToLoad;
     public MidiTrack ResponseMidiTrackToLoad;
 

@@ -27,7 +27,8 @@ namespace RhythmJam
         {
             Good,
             Perfect,
-            Miss
+            Miss,
+            NoNote
         }
 
         public event Action OnCallNote;
@@ -148,10 +149,15 @@ namespace RhythmJam
                 _responseNotes.Dequeue();
                 OnGood?.Invoke();
                 OnResponseNote?.Invoke(this, Judgement.Good);
-            } else
-            {
+            } else if (accuracy < _currentSong.MissTimeMs) {
+                // Close enough to hit a note, but not good
+                _responseNotes.Dequeue();
                 OnMiss?.Invoke();
                 OnResponseNote?.Invoke(this, Judgement.Miss);
+            } else {
+                // No nearby note
+                OnMiss?.Invoke();
+                OnResponseNote?.Invoke(this, Judgement.NoNote);
             }
         }
 

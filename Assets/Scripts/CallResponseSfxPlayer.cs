@@ -38,6 +38,9 @@ public class CallResponseSfxPlayer : MonoBehaviour
             case CallResponseGameplayManager.Judgement.Perfect:
                 HitAudioSource.PlayScheduled(_delay);
                 break;
+            case CallResponseGameplayManager.Judgement.NoNote:
+                // No nearby note, do nothing.
+                break;
         }
     }
 
