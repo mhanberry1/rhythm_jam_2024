@@ -298,6 +298,7 @@ GameObject:
   - component: {fileID: 7753261645135929132}
   - component: {fileID: 6712489714297227782}
   - component: {fileID: 4065652548799390505}
+  - component: {fileID: 6991696323249306744}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Untagged
@@ -418,6 +419,21 @@ MonoBehaviour:
   MaxXScale: 1
   MinRotation: 0
   MaxRotation: 0
+--- !u!114 &6991696323249306744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352400571645492551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b664546b587244997dc14c869ced0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _time: 0.03
+  _distance: 0.005
+  _delayBetweenShakes: 0
 --- !u!1 &7769487247926488054
 GameObject:
   m_ObjectHideFlags: 0

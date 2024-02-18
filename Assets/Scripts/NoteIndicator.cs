@@ -12,8 +12,6 @@ public class NoteIndicator : MonoBehaviour
     public SpriteRenderer InnerCircle;
     public SpriteRenderer FilledCircle;
 
-    private 
-
     void OnEnable() {
         CallResponseGameplayManager.Instance.OnCallNote += OnCallNote;
         CallResponseGameplayManager.Instance.OnResponseNote += OnResponseNote;
