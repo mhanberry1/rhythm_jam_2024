@@ -9,6 +9,7 @@ public class ReactUnityBridge : MonoBehaviour {
     public UIRouter Router;
 
     public ReactiveValue<string> route = new();
+    public ReactiveValue<bool> debugModeEnabled = new();
     public ReactiveValue<string> debugGameState = new();
     public ReactiveValue<string> status = new();
     public ReactiveValue<int> score = new();
@@ -30,6 +31,7 @@ public class ReactUnityBridge : MonoBehaviour {
         reactRenderer.Globals["status"] = status;
         reactRenderer.Globals["debugGameState"] = debugGameState;
         reactRenderer.Globals["canContinue"] = canContinue;
+        reactRenderer.Globals["debugModeEnabled"] = debugModeEnabled;
         
         // Game System References
         reactRenderer.Globals["gameLifecycleManager"] = GameLifecycleManager;
@@ -38,6 +40,11 @@ public class ReactUnityBridge : MonoBehaviour {
         GameLifecycleManager.OnScoreUpdated += OnScoreUpdated;
         GameLifecycleManager.OnStatusUpdated += OnStatusUpdated;
         Leaderboards.OnLeaderboardScoresUpdated += LeaderboardsOnOnLeaderboardScoresUpdated;
+
+        debugModeEnabled.Value = false;
+#if UNITY_EDITOR
+        debugModeEnabled.Value = true;
+#endif
     }
 
     private void OnScoreUpdated(object sender, int data)
