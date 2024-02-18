@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7975195105163718088}
   - component: {fileID: 3873195178563212048}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: NoteIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,7 @@ MonoBehaviour:
   OuterCirclePrefab: {fileID: 2519065218719387933, guid: 1e693b7dbbf5450429ae38f0ef92270f, type: 3}
   InnerCircle: {fileID: 5345805755123501923}
   FilledCircle: {fileID: 4798544464454712128}
+  MaxScale: 5
 --- !u!1 &4028446370630400952
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +60,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7727841259276459338}
   - component: {fileID: 5345805755123501923}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: InnerCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7020689430231245910}
   - component: {fileID: 4798544464454712128}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: FilledCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

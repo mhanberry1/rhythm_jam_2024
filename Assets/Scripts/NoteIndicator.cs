@@ -11,7 +11,8 @@ public class NoteIndicator : MonoBehaviour
     public GameObject OuterCirclePrefab;
     public SpriteRenderer InnerCircle;
     public SpriteRenderer FilledCircle;
-
+    public float MaxScale = 5;
+    
     void OnEnable() {
         CallResponseGameplayManager.Instance.OnCallNote += OnCallNote;
         CallResponseGameplayManager.Instance.OnResponseNote += OnResponseNote;
@@ -36,6 +37,8 @@ public class NoteIndicator : MonoBehaviour
     void OnCallNote() {
         // Spawn indicator circle
         var circle = Instantiate(OuterCirclePrefab, this.gameObject.transform);
+        circle.GetComponent<NoteIndicatorCircle>().MaxScale = MaxScale;
+        circle.SetActive(true);
     }
 
     void OnResponseNote(object sender, CallResponseGameplayManager.Judgement judgement) {
