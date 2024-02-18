@@ -73,7 +73,6 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
                 UIRouter.Instance.SwitchRoutes(UIRouter.Route.Hud);
                 LevelManager.Instance.SwitchLevels(_currentGameType);
                 CallResponseGameplayManager.Instance.Play();
-                SetScore(0);
                 // Unpause the game
                 Time.timeScale = 1;
                 break;
@@ -108,8 +107,12 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
     }
 
     [JsCallable]
-    public void StartGame(GameType gameType)
+    public void StartGame(GameType gameType, bool resetScore = true)
     {
+        if (resetScore)
+        {
+            SetScore(0);
+        }
         _currentGameType = gameType;
         CallResponseGameplayManager.Instance.Initialize(_currentGameType);
         SwitchGameState(GameState.GameStarted);
@@ -134,16 +137,22 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
     }
 
     [JsCallable]
-    public void EndGame()
+    public void EndLevel()
     {
         _canContinue = _currentGameType != GameType.OldManRave; 
         SwitchGameState(GameState.GameOver);
     }
-
+    
     [JsCallable]
     public void ToLeaderboard()
     {
         SwitchGameState(GameState.Leaderboard);
+    }
+
+    [JsCallable]
+    public void ToNextLevel()
+    {
+        StartGame(GameType.OldManRave);
     }
 
     void Start()

@@ -172,7 +172,7 @@ namespace RhythmJam
         // End the level if the song is over
         private void EndLevel()
         {
-            GameLifecycleManager.Instance.EndGame();
+            GameLifecycleManager.Instance.EndLevel();
         }
     }
 }

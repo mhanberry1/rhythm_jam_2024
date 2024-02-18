@@ -33,7 +33,7 @@ public class ReactUnityBridge : MonoBehaviour {
         reactRenderer.Globals["canContinue"] = canContinue;
         reactRenderer.Globals["debugModeEnabled"] = debugModeEnabled;
         
-        // Game System References
+        // Game System References   
         reactRenderer.Globals["gameLifecycleManager"] = GameLifecycleManager;
         
         GameLifecycleManager.OnGameStateUpdated += OnGameStateUpdated;

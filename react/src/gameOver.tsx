@@ -10,22 +10,31 @@ export default function GameOver(): React.ReactNode {
   const status = useReactiveValue(globals.status);
   const canContinue = useReactiveValue(globals.canContinue);
 
+  var title = status;
+  if (canContinue) {
+    title = "Let's keep dreaming~";
+  }
+
   return (
     <view className="gameover">
-      <view className="title">{status}</view>
+      <view className="title">{title}</view>
       <view className="content">
-        {true && <Button
-          text="Main Menu"
-          onClick={() => {
-            gameLifecycleManager.ReturnToMainMenu();
-          }}
-        />}
-        {false && <Button
-          text="Continue"
-          onClick={() => {
-            gameLifecycleManager.ToNextLevel();
-          }}
-        />}
+        {!canContinue && (
+          <Button
+            text="Main Menu"
+            onClick={() => {
+              gameLifecycleManager.ReturnToMainMenu();
+            }}
+          />
+        )}
+        {canContinue && (
+          <Button
+            text="Continue"
+            onClick={() => {
+              gameLifecycleManager.ToNextLevel();
+            }}
+          />
+        )}
         <view className="score flex-row padding-md">
           <Score value={globals.score.Value} />
         </view>
