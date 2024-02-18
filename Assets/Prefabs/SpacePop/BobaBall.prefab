@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Spaceship: {fileID: 0}
-  Speed: 1
+  DeflectionSpeed: 10
 --- !u!114 &4410411873914606103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,3 +112,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2349cba2abbe5fed8e250312e4252ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Ttl: 10
