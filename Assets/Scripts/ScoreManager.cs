@@ -11,9 +11,9 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private int MissScore = 0;
     [SerializeField] private int NextStreak = 10;
     [SerializeField] private int MaxStreak = 4;
-    [SerializeField] private string BadStatus = "Try harder...";
+    [SerializeField] private string BadStatus = "Let's try again!";
     [SerializeField] private string GoodStatus = "Not too shabby.";
-    [SerializeField] private string GreatStatus = "Amazing!";
+    [SerializeField] private string GreatStatus = "You're a superstar!";
 
     private CallResponseGameplayManager.Judgement Good = CallResponseGameplayManager.Judgement.Good;
     private CallResponseGameplayManager.Judgement Perfect = CallResponseGameplayManager.Judgement.Perfect;
@@ -51,16 +51,22 @@ public class ScoreManager : MonoBehaviour
     void OnGameStateUpdated(object sender, GameLifecycleManager.GameState gameState)
     {
         if (gameState != GameLifecycleManager.GameState.GameOver) return;
-
+        
         CallResponseSong currentSong = CallResponseGameplayManager.Instance.CurrentSong;
         int totalPossibleScore = currentSong.ResponseNotes.Count * PerfectScore;
         float scorePercentage = _score / totalPossibleScore;
         string status = scorePercentage > .9 ? GreatStatus
             : scorePercentage > .7 ? GoodStatus
             : BadStatus;
-
-        Leaderboards.Instance.SubmitScoreToLeaderboard(_score);
+        
         GameLifecycleManager.Instance.SetStatus(status);
+        
+        // Should only submit to leaderboard when game is over (OldManRave)
+        if (GameLifecycleManager.Instance.CurrentGameType == GameLifecycleManager.GameType.OldManRave)
+        {
+            Debug.Log("Game Over! Submit score :)");
+            Leaderboards.Instance.SubmitScoreToLeaderboard(_score);
+        } 
     }
 }
 

@@ -141,6 +141,7 @@ public class GameLifecycleManager : Singleton<GameLifecycleManager>
     {
         _canContinue = _currentGameType != GameType.OldManRave; 
         SwitchGameState(GameState.GameOver);
+        // TODO: Stop RhythmEngine if its not stopped.
     }
     
     [JsCallable]

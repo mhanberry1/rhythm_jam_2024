@@ -13,6 +13,11 @@ public class NoteIndicator : MonoBehaviour
     public SpriteRenderer FilledCircle;
     public float MaxScale = 5;
     
+    [NonNullField]
+    public GameObject InstructionsObject;
+
+    private int _notesHit = 0;
+    
     void OnEnable() {
         CallResponseGameplayManager.Instance.OnCallNote += OnCallNote;
         CallResponseGameplayManager.Instance.OnResponseNote += OnResponseNote;
@@ -47,9 +52,13 @@ public class NoteIndicator : MonoBehaviour
                 // Change color to red
                 break;
             case CallResponseGameplayManager.Judgement.Good:
-                // 
-                break;
             case CallResponseGameplayManager.Judgement.Perfect:
+                _notesHit += 1;
+                if (_notesHit == 4)
+                {
+                    // Disable the instructions
+                    InstructionsObject.SetActive(false);
+                }
                 break;
         }
     }
