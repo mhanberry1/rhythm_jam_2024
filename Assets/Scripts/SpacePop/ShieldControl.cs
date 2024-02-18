@@ -29,7 +29,6 @@ public class ShieldControl : MonoBehaviour
 
     private void OnBeatInput(InputAction.CallbackContext context)
     {
-        Debug.Log("here");
         _remainingDuration = duration;
         Shield.SetActive(true);
     }

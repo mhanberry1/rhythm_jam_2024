@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SpaceshipMovement : MonoBehaviour
 {
-    [SerializeField] private double Modifier = 0.005;
+    [SerializeField] private double Modifier = 0.3;
 
     private double _t = 0;
     private Vector3 _originalPos;
@@ -17,9 +17,9 @@ public class SpaceshipMovement : MonoBehaviour
     {
         _t = _t < 2 * Math.PI ? _t + Time.deltaTime: 0;
 
-        transform.Translate(
-            (float) (Modifier * Math.Cos(_t + _originalPos.x)),
-            0,
+        transform.position = new Vector3 (
+            (float) (Modifier * Math.Cos(_t) + _originalPos.x),
+            _originalPos.y,
             0
         );
     }

@@ -155,6 +155,18 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2505357849937438742, guid: fc417b3454c8b894097e8131c06f5301, type: 3}
+      propertyPath: Modifier
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3049418604682806701, guid: fc417b3454c8b894097e8131c06f5301, type: 3}
+      propertyPath: Modifier
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460389029751804128, guid: fc417b3454c8b894097e8131c06f5301, type: 3}
+      propertyPath: Modifier
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5222031749399859080, guid: fc417b3454c8b894097e8131c06f5301, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

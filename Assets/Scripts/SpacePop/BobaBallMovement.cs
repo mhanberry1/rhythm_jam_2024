@@ -10,7 +10,9 @@ public class BobaBallMovement : MonoBehaviour
 
     private Vector3 _direction;
     private float _speed;
+    private float _timePassed = 0;
     private double _t = 0;
+    private Vector3 _originalPos;
 
     void OnEnable()
     {
@@ -19,19 +21,23 @@ public class BobaBallMovement : MonoBehaviour
             Spaceship.GetComponent<SpriteRenderer>().bounds.min.y,
             0
         );
+
         Vector3 differenceVect = (target - transform.position);
         _direction = differenceVect.normalized;
         _speed = 0.65f * differenceVect.magnitude / (float) CallResponseGameplayManager.Instance.CurrentSong.TimeUntilResponse();
+        _originalPos = transform.position;
+        Debug.Log(CallResponseGameplayManager.Instance.CurrentSong.TimeUntilResponse());
     }
 
     void Update()
     {
+        _timePassed += Time.deltaTime;
         _t = _t < 2 * Math.PI ? _t + Time.deltaTime: 0;
 
-        Vector3 translationVect = _direction * _speed * Time.deltaTime;
-        translationVect.x += (float) (0.03 * Math.Cos(7 * _t));
+        Vector3 newPos = _direction * _speed * _timePassed + _originalPos;
+        newPos.x += (float) (0.3 * Math.Cos(7 * _t));
 
-        transform.Translate(translationVect);
+        transform.position = newPos;
     }
 }
 
