@@ -14,12 +14,6 @@ export default function Hud(): React.ReactNode {
       <view className="flex-row padding-md">
         <Score value={score} />
         <view className="spacer" />
-        <Button
-          text="Pause"
-          onClick={() => {
-            gameLifecycleManager.PauseGame();
-          }}
-        />
       </view>
     </view>
   );

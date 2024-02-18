@@ -14,19 +14,19 @@ export default function GameOver(): React.ReactNode {
     <view className="gameover">
       <view className="title">{status}</view>
       <view className="content">
-        {!canContinue && <Button
+        {true && <Button
           text="Main Menu"
           onClick={() => {
             gameLifecycleManager.ReturnToMainMenu();
           }}
         />}
-        {canContinue && <Button
+        {false && <Button
           text="Continue"
           onClick={() => {
             gameLifecycleManager.ToNextLevel();
           }}
         />}
-        <view className="flex-row padding-md">
+        <view className="score flex-row padding-md">
           <Score value={globals.score.Value} />
         </view>
       </view>
