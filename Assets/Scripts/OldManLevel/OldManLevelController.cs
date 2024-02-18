@@ -88,18 +88,24 @@ public class OldManLevelController : MonoBehaviour
             case CallResponseGameplayManager.Judgement.Miss:
                 break;
         }
+        
+        // If it's the last response note, do the Victory pose!
+        if (CallResponseGameplayManager.Instance.IsLastResponseNote())
+        {
+            SwitchAnimationSet(OldManAnimation.Victory);   
+        }
     }
 
-    private void SwitchAnimationSet(OldManAnimation animation)
+    private void SwitchAnimationSet(OldManAnimation oldManAnimation)
     {
-        if (_oldManAnimation == animation)
+        if (_oldManAnimation == oldManAnimation)
         {
             // Don't do anything if the animation doesn't actually change.
             return;
         }
         
         _animationFrame = 0;
-        _oldManAnimation = animation;
+        _oldManAnimation = oldManAnimation;
         DisableSprites(WalkerAnimationSprites);
         DisableSprites(Dance1AnimationSprites);
         DisableSprites(Dance2AnimationSprites);

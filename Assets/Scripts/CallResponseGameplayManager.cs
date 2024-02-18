@@ -198,5 +198,10 @@ namespace RhythmJam
                 return _callNotes.Peek().Time - RhythmEngine.GetCurrentAudioTime();
             }
         }
+
+        public bool IsLastResponseNote()
+        {
+            return _responseNotes.Count == 0;
+        }
     }
 }
